@@ -26,9 +26,9 @@ URL_1FIL0_GITHUB = "/"
 
 PATH_SHARE_HERE = os.path.dirname(os.path.abspath(__file__))
 PATH_MARKET_ENGINE_SOURCE = os.path.join(PATH_SHARE_HERE, "..", "..", "..", "..")
-PATH_MARKET_ENGINE_ASSETS = os.path.join(PATH_MARKET_ENGINE_SOURCE, "assets")
+PATH_MARKET_ENGINE_ASSETS = os.path.join(PATH_MARKET_ENGINE_SOURCE, "market_engine_assets")
 PATH_MARKET_ENGINE_ASSETS_SKINS = os.path.join(PATH_MARKET_ENGINE_ASSETS, "skins")
-PATH_MARKET_ENGINE_FONTS = os.path.join(PATH_MARKET_ENGINE_SOURCE, "assets", "fonts")
+PATH_MARKET_ENGINE_FONTS = os.path.join(PATH_MARKET_ENGINE_SOURCE, "market_engine_assets", "fonts")
 PATH_MARKET_ENGINE_CLIENT = os.path.join(PATH_MARKET_ENGINE_SOURCE, "market_engine_client")
 PATH_MARKET_ENGINE_API = os.path.join(PATH_MARKET_ENGINE_SOURCE, "market_engine_api")
 PATH_MARKET_ENGINE_DRIVERS = os.path.join(PATH_MARKET_ENGINE_SOURCE, "drivers")
@@ -108,7 +108,7 @@ elif (shared_args.argDist == "release"):
     PATH_DIST_CLIENT_TRADEUP_ENGINE_BINARY = os.path.join(PATH_BIN_DIST, "engine")
     PATH_DIST_API_APP_BINARY = os.path.join(PATH_BIN_DIST, "api")
     PATH_DIST_API_SONAR_BINARY = os.path.join(PATH_BIN_DIST, "sonar")
-    PATH_DIST_ASSETS = os.path.join(PATH_DIST, "assets")
+    PATH_DIST_ASSETS = os.path.join(PATH_DIST, "market_engine_assets")
     PATH_DIST_ASSETS_SKINS = os.path.join(PATH_DIST_ASSETS, "skins")
     PATH_DIST_DRIVERS = os.path.join(PATH_DIST, "drivers")
 else:
