@@ -78,7 +78,7 @@ PATH_DATA_API_SCRAPED_PAGES = os.path.join(PATH_DATA_API, "scraped_pages.json")
 # __ DIST / BINARIES __ #
 
 PATH_DIST = getattr(sys, "_MEIPASS", os.path.abspath("."))
-PATH_BIN_DIST = os.path.dirname(sys.executable) # SAME PATH AS RUNNING BINARY
+PATH_BIN_DIST = os.path.join(os.path.dirname(sys.executable), "..") # SAME PATH AS RUNNING BINARY
 PATH_DIST_ASSETS: str = ""
 PATH_DIST_ASSETS_SKINS: str = ""
 PATH_DIST_CLIENT_APP_BINARY: str = ""
@@ -103,8 +103,8 @@ if (shared_args.argDist == "dev"):
         PATH_DIST_CLIENT_TRADEUP_ENGINE_BINARY = os.path.join(PATH_CLIENT_TRADEUP_ENGINE, "build", "build_linux64", "engine")
 
 elif (shared_args.argDist == "release"):
-    PATH_DIST_CLIENT_APP_BINARY = os.path.join(PATH_BIN_DIST, "client")
-    PATH_DIST_CLIENT_SONAR_BINARY = os.path.join(PATH_BIN_DIST, "sonar")
+    PATH_DIST_CLIENT_APP_BINARY = os.path.join(PATH_BIN_DIST, "application", "application")
+    PATH_DIST_CLIENT_SONAR_BINARY = os.path.join(PATH_BIN_DIST, "sonar", "sonar")
     PATH_DIST_CLIENT_TRADEUP_ENGINE_BINARY = os.path.join(PATH_BIN_DIST, "engine")
     PATH_DIST_API_APP_BINARY = os.path.join(PATH_BIN_DIST, "api")
     PATH_DIST_API_SONAR_BINARY = os.path.join(PATH_BIN_DIST, "sonar")
