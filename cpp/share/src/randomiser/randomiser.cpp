@@ -2,6 +2,8 @@
 #include "namespace.hpp"
 #include <random>
 #include <chrono>
+#include <utility>
+#include "logger.hpp"
 
 USE_NAMESPACE_SHARE
 
@@ -14,14 +16,22 @@ void RAND::init()
     rng = std::mt19937(seed);
 }
 
-int RAND::getRandomInt(const int min, const int max)
+int RAND::getRandomInt(int min, int max)
 {
+    if (min > max) {
+        LOGGER::sendMessage("Randomiser warning: min is bigger than max");
+        std::swap(min, max);
+    }
     std::uniform_int_distribution<int> uid(min, max);
     return uid(rng);
 }
 
-float RAND::getRandomFloat(const float min, const float max)
+float RAND::getRandomFloat(float min, float max)
 {
+    if (min > max) {
+        LOGGER::sendMessage("Randomiser warning: min is bigger than max");
+        std::swap(min, max);
+    }
     std::uniform_real_distribution<float> uid(min, max);
     return uid(rng);
 }

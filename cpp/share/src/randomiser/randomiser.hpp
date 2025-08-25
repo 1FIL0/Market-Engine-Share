@@ -5,7 +5,7 @@
 START_SHARE_NAMESPACE_MULTI(RAND)
 
 void init();
-int getRandomInt(const int min, const int max);
-float getRandomFloat(const float min, const float max);
+int getRandomInt(int min, int max);
+float getRandomFloat(float min, float max);
 
 END_SHARE_NAMESPACE

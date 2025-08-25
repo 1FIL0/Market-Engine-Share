@@ -9,7 +9,7 @@
 #if defined(_WIN32)
     const std::string PATH_HERE = __FILE__;
     const std::string DIR_HERE = {PATH_HERE.substr(0, PATH_HERE.rfind("/"))};
-    #define SYSTEM_NAME                                 "Linux"
+    #define SYSTEM_NAME                                 "Windows"
     #define ENV_HOME                                    std::getenv("HOME")
     #define PATH_CONFIG_CLIENT                          std::string(std::getenv("APPDATA")) + "\\market_engine_client"
     #define PATH_DATA_CLIENT                            std::string(std::getenv("LOCALAPPDATA")) + "\\market_engine_client"
@@ -19,7 +19,7 @@
     #define DIR_MARKET_ENGINE_SONAR                     std::string(DIR_MARKET_ENGINE_CLIENT) + "\\python\\sonar"
     #define DIR_MARKET_ENGINE_CALCULATOR                std::string(DIR_MARKET_ENGINE_CLIENT) + "\\cpp\\calculator"
     #define DIR_MARKET_ENGINE_GPU_KERNEL_PATH           std::string(DIR_MARKET_ENGINE_CALCULATOR) + "\\src\\gpu_kernel_embedded"
-    #define PATH_CONFIG_CLIENT_TRADEUP_ENGINE       std::string(PATH_CONFIG_CLIENT) + "\\tradeup_engine.json"
+    #define PATH_CONFIG_CLIENT_TRADEUP_ENGINE           std::string(PATH_CONFIG_CLIENT) + "\\tradeup_engine.json"
     #define PATH_DATA_CLIENT_READY_ITEMS                std::string(PATH_DATA_CLIENT) + "\\ready_items.json"
     #define PATH_DATA_CLIENT_MODIFIED_ITEMS             std::string(PATH_DATA_CLIENT) + "\\modified_items.json"
     #define PATH_DATA_CLIENT_PROFITABLE_TRADEUPS        std::string(PATH_DATA_CLIENT) + "\\profitable_tradeups.json"
@@ -38,7 +38,7 @@
     #define DIR_MARKET_ENGINE_SONAR                     std::string(DIR_MARKET_ENGINE_CLIENT) + "/python/sonar"
     #define DIR_MARKET_ENGINE_CALCULATOR                std::string(DIR_MARKET_ENGINE_CLIENT) + "/cpp/calculator"
     #define DIR_MARKET_ENGINE_GPU_KERNEL_PATH           std::string(DIR_MARKET_ENGINE_CALCULATOR) + "/src/gpu_kernel_embedded"
-    #define PATH_CONFIG_CLIENT_TRADEUP_ENGINE       std::string(PATH_CONFIG_CLIENT) + "/tradeup_engine.json"
+    #define PATH_CONFIG_CLIENT_TRADEUP_ENGINE           std::string(PATH_CONFIG_CLIENT) + "/tradeup_engine.json"
     #define PATH_DATA_CLIENT_READY_ITEMS                std::string(PATH_DATA_CLIENT) + "/ready_items.json"
     #define PATH_DATA_CLIENT_MODIFIED_ITEMS             std::string(PATH_DATA_CLIENT) + "/modified_items.json"
     #define PATH_DATA_CLIENT_PROFITABLE_TRADEUPS        std::string(PATH_DATA_CLIENT) + "/profitable_tradeups.json"
