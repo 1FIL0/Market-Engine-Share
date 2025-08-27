@@ -10,8 +10,6 @@ system = platform.system()
 # _____ URLS _____ #
 
 URL_MARKET_ENGINE = "http://localhost:3000"
-URL_MARKET_ENGINE_APP_LOGIN = URL_MARKET_ENGINE + "/app_login"
-URL_MARKET_ENGINE_VALIDATE_TOKEN = URL_MARKET_ENGINE + "/api/validate_token"
 URL_MARKET_ENGINE_UPDATE_ITEMS = URL_MARKET_ENGINE + "/api/update_items"
 URL_MARKET_ENGINE_FETCH_ITEMS = URL_MARKET_ENGINE + "/api/fetch_items"
 URL_MARKET_ENGINE_FETCH_SERVER_STATUS = URL_MARKET_ENGINE + "/api/fetch_status"

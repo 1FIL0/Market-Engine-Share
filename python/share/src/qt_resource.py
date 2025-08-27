@@ -20,7 +20,6 @@ def loadAppResources():
     loadIcons()
     fontSystemHudNormal = loadFont(os.path.join(definitions.PATH_DIST_ASSETS, "fonts", "SystemHud-Normal.ttf"), 15, QFont.Weight.Normal)
     fontSystemHudBold = loadFont(os.path.join(definitions.PATH_DIST_ASSETS, "fonts", "SystemHud-Normal.ttf"), 15, QFont.Weight.Bold)
-    loadFont(os.path.join(definitions.PATH_DIST_ASSETS, "fonts", "FiraCode-Regular.ttf"), 10, QFont.Weight.Normal)
 
 def loadIcons():
     global iconDelete
