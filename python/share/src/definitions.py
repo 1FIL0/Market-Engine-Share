@@ -15,10 +15,10 @@ URL_MARKET_ENGINE_FETCH_ITEMS = URL_MARKET_ENGINE + "/api/fetch_items"
 URL_MARKET_ENGINE_FETCH_SERVER_STATUS = URL_MARKET_ENGINE + "/api/fetch_status"
 URL_CSFLOAT_API_GET_LISTINGS = "https://csfloat.com/api/v1/listings"
 URL_SKINPORT_GET_ITEMS = "https://api.skinport.com/v1/sales/history"
-URL_1FIL0_YOUTUBE = "/"
+URL_MARKET_ENGINE_REPO = "https://github.com/1FIL0/Market-Engine-Client"
+URL_1FIL0_YOUTUBE = "https://www.youtube.com/@1FIL0-f7f"
 URL_1FIL0_DISCORD = "/"
-URL_1FIL0_INSTAGRAM = "/"
-URL_1FIL0_GITHUB = "/"
+URL_1FIL0_GITHUB = "https://github.com/1FIL0"
 
 # __ BASIC SOURCE PATHS __ #
 
