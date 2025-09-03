@@ -72,12 +72,15 @@ PATH_DATA_API_SCRAPED_PAGES = PATH_DATA_API / "scraped_pages.json"
 
 PATH_SHARE_HERE = Path(__file__).resolve().parent
 PATH_MEIPASS = Path(getattr(sys, "_MEIPASS", Path(".").resolve()))
-PATH_BINARY = Path(sys.executable).parent
-currentDir = PATH_BINARY
-while currentDir.name != "bin" and currentDir.parent != currentDir:
-    currentDir = currentDir.parent
-PATH_DIST_BIN = currentDir
-PATH_BINARY_DIRNAME = PATH_BINARY.name
+PATH_BINARY_DIR = Path(sys.executable).parent
+
+# Find bin directory from executable. WARNING - Must check in this specific order in case some proper mong tries to exploit into creating a fake bin/ directory.
+# made this fent work after 5 hours at 4:30AM
+PATH_DIST_BIN = Path()
+for candidate in [PATH_BINARY_DIR, PATH_BINARY_DIR / "bin", PATH_BINARY_DIR.parent]:
+    if candidate.is_dir() and candidate.name == "bin":
+        PATH_DIST_BIN = candidate
+        break
 
 PATH_DIST_ASSETS: Path = Path()
 PATH_DIST_ASSETS_SKINS: Path = Path()
