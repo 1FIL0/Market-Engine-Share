@@ -3,7 +3,7 @@ import os
 import platform
 import sys
 import shared_args
-import logger
+from pathlib import Path
 
 system = platform.system()
 
@@ -20,102 +20,125 @@ URL_1FIL0_YOUTUBE = "https://www.youtube.com/@1FIL0-f7f"
 URL_1FIL0_DISCORD = "/"
 URL_1FIL0_GITHUB = "https://github.com/1FIL0"
 
-# __ BASIC SOURCE PATHS __ #
-
-PATH_SHARE_HERE = os.path.dirname(os.path.abspath(__file__))
-PATH_MARKET_ENGINE_SOURCE = os.path.join(PATH_SHARE_HERE, "..", "..", "..", "..")
-PATH_MARKET_ENGINE_ASSETS = os.path.join(PATH_MARKET_ENGINE_SOURCE, "market_engine_assets")
-PATH_MARKET_ENGINE_ASSETS_SKINS = os.path.join(PATH_MARKET_ENGINE_ASSETS, "skins")
-PATH_MARKET_ENGINE_FONTS = os.path.join(PATH_MARKET_ENGINE_SOURCE, "market_engine_assets", "fonts")
-PATH_MARKET_ENGINE_CLIENT = os.path.join(PATH_MARKET_ENGINE_SOURCE, "market_engine_client")
-PATH_MARKET_ENGINE_API = os.path.join(PATH_MARKET_ENGINE_SOURCE, "market_engine_api")
-PATH_MARKET_ENGINE_DRIVERS = os.path.join(PATH_MARKET_ENGINE_SOURCE, "drivers")
-PATH_CLIENT_APPLICATION = os.path.join(PATH_MARKET_ENGINE_CLIENT, "python", "application")
-PATH_CLIENT_SONAR = os.path.join(PATH_MARKET_ENGINE_CLIENT, "python", "sonar")
-PATH_CLIENT_TRADEUP_ENGINE = os.path.join(PATH_MARKET_ENGINE_CLIENT, "cpp", "tradeup_engine")
-PATH_API_APPLICATION = os.path.join(PATH_MARKET_ENGINE_API, "python", "application")
-PATH_API_SONAR = os.path.join(PATH_MARKET_ENGINE_API, "python", "sonar")
 
 # __ CONFIGS / DATA __ #
 
-PATH_DATA_CLIENT: str = ""
-PATH_DATA_API: str = ""
-PATH_CONFIG_CLIENT: str = ""
-PATH_CONFIG_API: str = ""
+PATH_DATA_CLIENT: Path = Path()
+PATH_DATA_API: Path = Path()
+PATH_CONFIG_CLIENT: Path = Path()
+PATH_CONFIG_API: Path = Path()
 
+# OS-specific base paths
 if system == "Windows":
-    PATH_CONFIG_CLIENT = os.path.join(os.environ['APPDATA'], 'market_engine_client')
-    PATH_CONFIG_API = os.path.join(os.environ['APPDATA'], 'market_engine_api')
-    PATH_DATA_CLIENT = os.path.join(os.environ.get('LOCALAPPDATA', os.environ['APPDATA']), 'market_engine_client')
-    PATH_DATA_API = os.path.join(os.environ.get('LOCALAPPDATA', os.environ['APPDATA']), 'market_engine_api')
-if system == 'Linux':
-    PATH_CONFIG_CLIENT = os.path.join(os.environ['HOME'], '.config', 'market_engine_client')
-    PATH_CONFIG_API = os.path.join(os.environ['HOME'], '.config', 'market_engine_api')
-    PATH_DATA_CLIENT = os.path.join(os.environ['HOME'], '.local', 'share', 'market_engine_client')
-    PATH_DATA_API = os.path.join(os.environ['HOME'], '.local', 'share', 'market_engine_api')
+    APPDATA = Path(os.environ['APPDATA'])
+    LOCALAPPDATA = Path(os.environ.get('LOCALAPPDATA', os.environ['APPDATA']))
+    PATH_CONFIG_CLIENT = APPDATA / 'market_engine_client'
+    PATH_CONFIG_API = APPDATA / 'market_engine_api'
+    PATH_DATA_CLIENT = LOCALAPPDATA / 'market_engine_client'
+    PATH_DATA_API = LOCALAPPDATA / 'market_engine_api'
 
-PATH_CONFIG_CLIENT_SONAR = os.path.join(PATH_CONFIG_CLIENT, "sonar.json")
-PATH_CONFIG_CLIENT_TRADEUP_ENGINE = os.path.join(PATH_CONFIG_CLIENT, "tradeup_engine.json")
-PATH_CONFIG_CLIENT_ITEM_LIBRARY = os.path.join(PATH_CONFIG_CLIENT, "item_library.json")
-PATH_CONFIG_CLIENT_UI = os.path.join(PATH_CONFIG_CLIENT, "ui.json")
-PATH_CONFIG_CLIENT_SERVER = os.path.join(PATH_CONFIG_CLIENT, "server.json")
-PATH_CONFIG_API_SONAR = os.path.join(PATH_CONFIG_API, "sonar.json")
+elif system == "Linux":
+    HOME = Path(os.environ['HOME'])
+    PATH_CONFIG_CLIENT = HOME / '.config' / 'market_engine_client'
+    PATH_CONFIG_API = HOME / '.config' / 'market_engine_api'
+    PATH_DATA_CLIENT = HOME / '.local' / 'share' / 'market_engine_client'
+    PATH_DATA_API = HOME / '.local' / 'share' / 'market_engine_api'
 
-PATH_DATA_CLIENT_READY_ITEMS = os.path.join(PATH_DATA_CLIENT, "ready_items.json")
-PATH_DATA_CLIENT_PROFITABLE_TRADEUPS = os.path.join(PATH_DATA_CLIENT, "profitable_tradeups.json")
-PATH_DATA_CLIENT_MODIFIED_ITEMS = os.path.join(PATH_DATA_CLIENT, "modified_items.json")
+# Client config files
+PATH_CONFIG_CLIENT_SONAR = PATH_CONFIG_CLIENT / "sonar.json"
+PATH_CONFIG_CLIENT_TRADEUP_ENGINE = PATH_CONFIG_CLIENT / "tradeup_engine.json"
+PATH_CONFIG_CLIENT_ITEM_LIBRARY = PATH_CONFIG_CLIENT / "item_library.json"
+PATH_CONFIG_CLIENT_UI = PATH_CONFIG_CLIENT / "ui.json"
+PATH_CONFIG_CLIENT_SERVER = PATH_CONFIG_CLIENT / "server.json"
 
-PATH_DATA_API_BYMYKEL_CSGO_API_ITEMS = os.path.join(PATH_DATA_API, "bymykel_csgo_api_items.json")
-PATH_DATA_API_STEAM_WEB_API_ITEMS = os.path.join(PATH_DATA_API, "steam_web_api_items.json")
-PATH_DATA_API_CSFLOAT_ITEMS = os.path.join(PATH_DATA_API, "csfloat_items.json")
-PATH_DATA_API_SKINPORT_ITEMS = os.path.join(PATH_DATA_API, "skinport_items.json")
-PATH_DATA_API_READY_ITEMS = os.path.join(PATH_DATA_API, "ready_items.json")
-PATH_DATA_API_SCRAPED_ITEMS = os.path.join(PATH_DATA_API, "scraped_items.json")
-PATH_DATA_API_SCRAPED_PAGES = os.path.join(PATH_DATA_API, "scraped_pages.json")
+# API config files
+PATH_CONFIG_API_SONAR = PATH_CONFIG_API / "sonar.json"
+
+# Client data files
+PATH_DATA_CLIENT_READY_ITEMS = PATH_DATA_CLIENT / "ready_items.json"
+PATH_DATA_CLIENT_PROFITABLE_TRADEUPS = PATH_DATA_CLIENT / "profitable_tradeups.json"
+PATH_DATA_CLIENT_MODIFIED_ITEMS = PATH_DATA_CLIENT / "modified_items.json"
+
+# API data files
+PATH_DATA_API_BYMYKEL_CSGO_API_ITEMS = PATH_DATA_API / "bymykel_csgo_api_items.json"
+PATH_DATA_API_STEAM_WEB_API_ITEMS = PATH_DATA_API / "steam_web_api_items.json"
+PATH_DATA_API_CSFLOAT_ITEMS = PATH_DATA_API / "csfloat_items.json"
+PATH_DATA_API_SKINPORT_ITEMS = PATH_DATA_API / "skinport_items.json"
+PATH_DATA_API_READY_ITEMS = PATH_DATA_API / "ready_items.json"
+PATH_DATA_API_SCRAPED_ITEMS = PATH_DATA_API / "scraped_items.json"
+PATH_DATA_API_SCRAPED_PAGES = PATH_DATA_API / "scraped_pages.json"
 
 # __ DIST / BINARIES __ #
 
-PATH_DIST = getattr(sys, "_MEIPASS", os.path.abspath("."))
-PATH_BIN_DIST_ONEDIR = os.path.join(os.path.dirname(sys.executable), "..") # SAME PATH AS RUNNING BINARY
-PATH_DIST_ASSETS: str = ""
-PATH_DIST_ASSETS_SKINS: str = ""
-PATH_DIST_CLIENT_APP_BINARY: str = ""
-PATH_DIST_CLIENT_SONAR_BINARY: str = ""
-PATH_DIST_CLIENT_TRADEUP_ENGINE_BINARY: str = ""
-PATH_DIST_API_APP_BINARY: str = ""
-PATH_DIST_API_SONAR_BINARY: str = ""
-PATH_DIST_DRIVERS: str = ""
+PATH_SHARE_HERE = Path(__file__).resolve().parent
+PATH_MEIPASS = Path(getattr(sys, "_MEIPASS", Path(".").resolve()))
+PATH_BINARY = Path(sys.executable).parent
+currentDir = PATH_BINARY
+while currentDir.name != "bin" and currentDir.parent != currentDir:
+    currentDir = currentDir.parent
+PATH_DIST_BIN = currentDir
+PATH_BINARY_DIRNAME = PATH_BINARY.name
 
-if (shared_args.argDist == "dev"):
-    PATH_DIST_CLIENT_APP_BINARY = os.path.join(PATH_CLIENT_APPLICATION, "src", "main.py")
-    PATH_DIST_CLIENT_SONAR_BINARY = os.path.join(PATH_CLIENT_SONAR, "src", "main.py")
-    PATH_DIST_API_APP_BINARY = os.path.join(PATH_API_APPLICATION, "src", "main.py")
-    PATH_DIST_API_SONAR_BINARY = os.path.join(PATH_API_SONAR, "src", "main.py")
+PATH_DIST_ASSETS: Path = Path()
+PATH_DIST_ASSETS_SKINS: Path = Path()
+PATH_DIST_CLIENT_APP_BINARY: Path = Path()
+PATH_DIST_CLIENT_SONAR_BINARY: Path = Path()
+PATH_DIST_CLIENT_TRADEUP_ENGINE_BINARY: Path = Path()
+PATH_DIST_API_APP_BINARY: Path = Path()
+PATH_DIST_API_SONAR_BINARY: Path = Path()
+PATH_DIST_DRIVERS: Path = Path()
+PATH_DIST_DRIVER_GECKODRIVER_PATH: Path = Path()
+
+# Handle developer or release distribution
+if shared_args.argDist == "dev":
+    PATH_MARKET_ENGINE_SOURCE = PATH_SHARE_HERE.parents[3]
+    PATH_MARKET_ENGINE_ASSETS = PATH_MARKET_ENGINE_SOURCE / "market_engine_assets"
+    PATH_MARKET_ENGINE_ASSETS_SKINS = PATH_MARKET_ENGINE_ASSETS / "skins"
+    PATH_MARKET_ENGINE_FONTS = PATH_MARKET_ENGINE_ASSETS / "fonts"
+    PATH_MARKET_ENGINE_CLIENT = PATH_MARKET_ENGINE_SOURCE / "market_engine_client"
+    PATH_MARKET_ENGINE_API = PATH_MARKET_ENGINE_SOURCE / "market_engine_api"
+    PATH_MARKET_ENGINE_DRIVERS = PATH_MARKET_ENGINE_SOURCE / "drivers"
+    PATH_CLIENT_APPLICATION = PATH_MARKET_ENGINE_CLIENT / "python" / "application"
+    PATH_CLIENT_SONAR = PATH_MARKET_ENGINE_CLIENT / "python" / "sonar"
+    PATH_CLIENT_TRADEUP_ENGINE = PATH_MARKET_ENGINE_CLIENT / "cpp" / "tradeup_engine"
+    PATH_API_APPLICATION = PATH_MARKET_ENGINE_API / "python" / "application"
+    PATH_API_SONAR = PATH_MARKET_ENGINE_API / "python" / "sonar"
+
+    PATH_DIST_CLIENT_APP_BINARY = PATH_CLIENT_APPLICATION / "src" / "main.py"
+    PATH_DIST_CLIENT_SONAR_BINARY = PATH_CLIENT_SONAR / "src" / "main.py"
+    PATH_DIST_API_APP_BINARY = PATH_API_APPLICATION / "src" / "main.py"
+    PATH_DIST_API_SONAR_BINARY = PATH_API_SONAR / "src" / "main.py"
+
     PATH_DIST_ASSETS = PATH_MARKET_ENGINE_ASSETS
     PATH_DIST_ASSETS_SKINS = PATH_MARKET_ENGINE_ASSETS_SKINS
-    PATH_DIST_CLIENT_TRADEUP_ENGINE_BINARY = ""
     PATH_DIST_DRIVERS = PATH_MARKET_ENGINE_DRIVERS
-    if system == "Windows":
-        PATH_DIST_CLIENT_TRADEUP_ENGINE_BINARY = os.path.join(PATH_CLIENT_TRADEUP_ENGINE, "build", "build_win64", "engine")
-    elif system == "Linux":
-        PATH_DIST_CLIENT_TRADEUP_ENGINE_BINARY = os.path.join(PATH_CLIENT_TRADEUP_ENGINE, "build", "build_linux64", "engine")
 
-elif (shared_args.argDist == "release"):
-    PATH_DIST_CLIENT_APP_BINARY = os.path.join(PATH_BIN_DIST_ONEDIR, "application", "application")
-    PATH_DIST_CLIENT_SONAR_BINARY = os.path.join(PATH_BIN_DIST_ONEDIR, "sonar", "sonar")
-    PATH_DIST_CLIENT_TRADEUP_ENGINE_BINARY = os.path.join(PATH_BIN_DIST_ONEDIR, "engine")
-    PATH_DIST_API_SONAR_BINARY = os.path.join(PATH_BIN_DIST_ONEDIR, "sonar", "sonar")
-    PATH_DIST_ASSETS = os.path.join(PATH_DIST, "market_engine_assets")
-    PATH_DIST_ASSETS_SKINS = os.path.join(PATH_DIST_ASSETS, "skins")
-    PATH_DIST_DRIVERS = os.path.join(PATH_DIST, "drivers")
+    if system == "Linux":
+        PATH_DIST_CLIENT_TRADEUP_ENGINE_BINARY = PATH_CLIENT_TRADEUP_ENGINE / "build" / "build_linux64" / "engine"
+    elif system == "Windows":
+        PATH_DIST_CLIENT_TRADEUP_ENGINE_BINARY = PATH_CLIENT_TRADEUP_ENGINE / "build" / "build_win64" / "engine"
 
-# __ DRIVERS __ #
+elif shared_args.argDist == "release":
+    if system == "Linux":
+        PATH_DIST_CLIENT_APP_BINARY = PATH_DIST_BIN / "application" / "application"
+        PATH_DIST_CLIENT_SONAR_BINARY = PATH_DIST_BIN / "sonar" / "sonar"
+        PATH_DIST_CLIENT_TRADEUP_ENGINE_BINARY = PATH_DIST_BIN / "engine"
+        PATH_DIST_API_SONAR_BINARY = PATH_DIST_BIN / "sonar" / "sonar"
+    elif system == "Windows":
+        PATH_DIST_CLIENT_APP_BINARY = PATH_DIST_BIN / "application" / "application.exe"
+        PATH_DIST_CLIENT_SONAR_BINARY = PATH_DIST_BIN / "sonar" / "sonar.exe"
+        PATH_DIST_CLIENT_TRADEUP_ENGINE_BINARY = PATH_DIST_BIN / "engine.exe"
+        PATH_DIST_API_SONAR_BINARY = PATH_DIST_BIN / "sonar" / "sonar.exe"
 
-PATH_DIST_DRIVER_GECKODRIVER_PATH: str = ""
+    PATH_DIST_ASSETS = PATH_MEIPASS / "market_engine_assets"
+    PATH_DIST_ASSETS_SKINS = PATH_DIST_ASSETS / "skins"
+    PATH_DIST_DRIVERS = PATH_MEIPASS / "drivers"
+
+# Drivers
 if system == "Windows":
-    PATH_DIST_DRIVER_GECKODRIVER_PATH = os.path.join(PATH_DIST_DRIVERS, "geckodriver_win32.exe")
+    PATH_DIST_DRIVER_GECKODRIVER_PATH = PATH_DIST_DRIVERS / "geckodriver_win32.exe"
 elif system == "Linux":
-    PATH_DIST_DRIVER_GECKODRIVER_PATH = os.path.join(PATH_DIST_DRIVERS, "geckodriver_linux64")
+    PATH_DIST_DRIVER_GECKODRIVER_PATH = PATH_DIST_DRIVERS / "geckodriver_linux64"
 
 
 consts = types.SimpleNamespace()
