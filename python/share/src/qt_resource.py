@@ -1,14 +1,17 @@
+import asyncio
+import hashlib
 import os
-from typing import Optional
+from pathlib import Path
+from typing import Callable, Optional
 from PyQt5.QtCore import Qt
-from PyQt5.QtGui import QFont, QFontDatabase, QIcon
+from PyQt5.QtGui import QFont, QFontDatabase, QIcon, QPixmap
 from PyQt5.QtWidgets import QLayout, QWidget, QPushButton, QLabel, QCheckBox, QDoubleSpinBox
+import async_networking
 
 from item import MarketItem
 import definitions
 import logger
 
-app = None
 fontSystemHudNormal: QFont
 fontSystemHudBold: QFont
 iconDelete: QIcon
@@ -16,7 +19,7 @@ iconFavDisabled: QIcon
 iconFavEnabled: QIcon
 
 def loadAppResources():
-    global fontSystemHudNormal, fontSystemHudBold, app
+    global fontSystemHudNormal, fontSystemHudBold
     loadIcons()
     fontSystemHudNormal = loadFont(os.path.join(definitions.PATH_DIST_ASSETS, "fonts", "SystemHud-Normal.ttf"), 15, QFont.Weight.Normal)
     fontSystemHudBold = loadFont(os.path.join(definitions.PATH_DIST_ASSETS, "fonts", "SystemHud-Normal.ttf"), 15, QFont.Weight.Bold)
@@ -40,13 +43,18 @@ def loadFont(path: str, size: int, weight: int) -> QFont:
     logger.sendMessage("Loaded font: " + fontFamily)
     return font
 
-def loadSkinIcon(item: MarketItem):
-    iconPath = f"{definitions.PATH_DIST_ASSETS_SKINS}/{item.imageName}"
-    if not os.path.exists(iconPath): 
-        logger.warnMessage(f"Skin image not found {iconPath}")
-        return QIcon()
-    icon = QIcon(iconPath)
-    return icon
+def getSkinIcon(item: MarketItem, callback: Callable[[QIcon], None]):
+    imageURL = item.imageUrl
+    cachePath = getSkinIconCachePath(imageURL)
+    if os.path.exists(cachePath): 
+        callback(QIcon(str(cachePath)))
+        return
+    
+    asyncio.ensure_future(async_networking.fetchCacheContents(imageURL, cachePath, lambda cachePath: callback(QIcon(str(cachePath)))))
+
+def getSkinIconCachePath(url: str):
+    urlHash = hashlib.md5(url.encode()).hexdigest()
+    return definitions.PATH_DATA_CLIENT_CACHE_DIR / (urlHash + ".png")
 
 def createWidget(objectName: str, layout: QLayout, alignment: Optional[Qt.AlignmentFlag] = None, styleSheet: str = ""):
     widget: QWidget = QWidget()

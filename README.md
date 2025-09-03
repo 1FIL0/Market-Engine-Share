@@ -2,7 +2,8 @@
 # Market Engine Share
 ## Overview
 This repo contains dependency code for the Market Engine Client and API.
+Website: https://marketengine.onefil.dev
 ## LICENCE
-Market Engine is licenced under GPL-V3.0.
+This project is licenced under the GPL V3.0 licence.
 
 

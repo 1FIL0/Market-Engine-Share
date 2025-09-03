@@ -20,15 +20,13 @@ URL_1FIL0_YOUTUBE = "https://www.youtube.com/@1FIL0-f7f"
 URL_1FIL0_DISCORD = "/"
 URL_1FIL0_GITHUB = "https://github.com/1FIL0"
 
-
-# __ CONFIGS / DATA __ #
+# _____ CONFIGS / DATA _____ #
 
 PATH_DATA_CLIENT: Path = Path()
 PATH_DATA_API: Path = Path()
 PATH_CONFIG_CLIENT: Path = Path()
 PATH_CONFIG_API: Path = Path()
 
-# OS-specific base paths
 if system == "Windows":
     APPDATA = Path(os.environ['APPDATA'])
     LOCALAPPDATA = Path(os.environ.get('LOCALAPPDATA', os.environ['APPDATA']))
@@ -44,22 +42,23 @@ elif system == "Linux":
     PATH_DATA_CLIENT = HOME / '.local' / 'share' / 'market_engine_client'
     PATH_DATA_API = HOME / '.local' / 'share' / 'market_engine_api'
 
-# Client config files
+# _____ CLIENT CONFIGS _____ #
 PATH_CONFIG_CLIENT_SONAR = PATH_CONFIG_CLIENT / "sonar.json"
 PATH_CONFIG_CLIENT_TRADEUP_ENGINE = PATH_CONFIG_CLIENT / "tradeup_engine.json"
 PATH_CONFIG_CLIENT_ITEM_LIBRARY = PATH_CONFIG_CLIENT / "item_library.json"
 PATH_CONFIG_CLIENT_UI = PATH_CONFIG_CLIENT / "ui.json"
 PATH_CONFIG_CLIENT_SERVER = PATH_CONFIG_CLIENT / "server.json"
 
-# API config files
+# _____ API CONFIGS _____ #
 PATH_CONFIG_API_SONAR = PATH_CONFIG_API / "sonar.json"
 
-# Client data files
+# _____ CLIENT DATA _____ #
 PATH_DATA_CLIENT_READY_ITEMS = PATH_DATA_CLIENT / "ready_items.json"
 PATH_DATA_CLIENT_PROFITABLE_TRADEUPS = PATH_DATA_CLIENT / "profitable_tradeups.json"
 PATH_DATA_CLIENT_MODIFIED_ITEMS = PATH_DATA_CLIENT / "modified_items.json"
+PATH_DATA_CLIENT_CACHE_DIR = PATH_DATA_CLIENT / "cache"
 
-# API data files
+# _____ API DATA _____ #
 PATH_DATA_API_BYMYKEL_CSGO_API_ITEMS = PATH_DATA_API / "bymykel_csgo_api_items.json"
 PATH_DATA_API_STEAM_WEB_API_ITEMS = PATH_DATA_API / "steam_web_api_items.json"
 PATH_DATA_API_CSFLOAT_ITEMS = PATH_DATA_API / "csfloat_items.json"
@@ -68,7 +67,7 @@ PATH_DATA_API_READY_ITEMS = PATH_DATA_API / "ready_items.json"
 PATH_DATA_API_SCRAPED_ITEMS = PATH_DATA_API / "scraped_items.json"
 PATH_DATA_API_SCRAPED_PAGES = PATH_DATA_API / "scraped_pages.json"
 
-# __ DIST / BINARIES __ #
+# _____ DIST / BINARIES _____ #
 
 PATH_SHARE_HERE = Path(__file__).resolve().parent
 PATH_MEIPASS = Path(getattr(sys, "_MEIPASS", Path(".").resolve()))
@@ -83,7 +82,6 @@ for candidate in [PATH_BINARY_DIR, PATH_BINARY_DIR / "bin", PATH_BINARY_DIR.pare
         break
 
 PATH_DIST_ASSETS: Path = Path()
-PATH_DIST_ASSETS_SKINS: Path = Path()
 PATH_DIST_CLIENT_APP_BINARY: Path = Path()
 PATH_DIST_CLIENT_SONAR_BINARY: Path = Path()
 PATH_DIST_CLIENT_TRADEUP_ENGINE_BINARY: Path = Path()
@@ -92,7 +90,7 @@ PATH_DIST_API_SONAR_BINARY: Path = Path()
 PATH_DIST_DRIVERS: Path = Path()
 PATH_DIST_DRIVER_GECKODRIVER_PATH: Path = Path()
 
-# Handle developer or release distribution
+# _____ DEV / RELEASE _____ #
 if shared_args.argDist == "dev":
     PATH_MARKET_ENGINE_SOURCE = PATH_SHARE_HERE.parents[3]
     PATH_MARKET_ENGINE_ASSETS = PATH_MARKET_ENGINE_SOURCE / "market_engine_assets"
@@ -113,7 +111,6 @@ if shared_args.argDist == "dev":
     PATH_DIST_API_SONAR_BINARY = PATH_API_SONAR / "src" / "main.py"
 
     PATH_DIST_ASSETS = PATH_MARKET_ENGINE_ASSETS
-    PATH_DIST_ASSETS_SKINS = PATH_MARKET_ENGINE_ASSETS_SKINS
     PATH_DIST_DRIVERS = PATH_MARKET_ENGINE_DRIVERS
 
     if system == "Linux":
@@ -134,10 +131,9 @@ elif shared_args.argDist == "release":
         PATH_DIST_API_SONAR_BINARY = PATH_DIST_BIN / "sonar" / "sonar.exe"
 
     PATH_DIST_ASSETS = PATH_MEIPASS / "market_engine_assets"
-    PATH_DIST_ASSETS_SKINS = PATH_DIST_ASSETS / "skins"
     PATH_DIST_DRIVERS = PATH_MEIPASS / "drivers"
 
-# Drivers
+
 if system == "Windows":
     PATH_DIST_DRIVER_GECKODRIVER_PATH = PATH_DIST_DRIVERS / "geckodriver_win32.exe"
 elif system == "Linux":

@@ -7,6 +7,7 @@ def validateFiles():
     logger.sendMessage("Validating Files")
     if not os.path.exists(definitions.PATH_CONFIG_CLIENT): file_handler.makeDir(definitions.PATH_CONFIG_CLIENT)
     if not os.path.exists(definitions.PATH_DATA_CLIENT): file_handler.makeDir(definitions.PATH_DATA_CLIENT)
+    if not os.path.exists(definitions.PATH_DATA_CLIENT_CACHE_DIR): file_handler.makeDir(definitions.PATH_DATA_CLIENT_CACHE_DIR)
     if not os.path.exists(definitions.PATH_CONFIG_CLIENT_SONAR): file_handler.writeFile(definitions.PATH_CONFIG_CLIENT_SONAR, "{}")
     if not os.path.exists(definitions.PATH_CONFIG_CLIENT_TRADEUP_ENGINE): file_handler.writeFile(definitions.PATH_CONFIG_CLIENT_TRADEUP_ENGINE, "{}")
     if not os.path.exists(definitions.PATH_CONFIG_CLIENT_ITEM_LIBRARY): file_handler.writeFile(definitions.PATH_CONFIG_CLIENT_ITEM_LIBRARY, "{}")
