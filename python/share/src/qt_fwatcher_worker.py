@@ -17,7 +17,7 @@ class QTFWatcherWorker(QObject):
         self.running = False
 
         self.timer = QTimer()
-        self.timer.setInterval(int(self.sleepSec * 1000))  # ms
+        self.timer.setInterval(int(self.sleepSec * 1000)) # ms
         self.timer.timeout.connect(self.checkFile)
 
     def start(self):
@@ -39,14 +39,18 @@ class QTFWatcherWorker(QObject):
 
         if self.fileMTimeNewer():
             self.callRefreshFunction()
-            self.lastMTime = os.path.getmtime(self.filePath)
+            self.syncMTime()
 
     def fileMTimeNewer(self):
         try:
             mtime = os.path.getmtime(self.filePath)
-            return mtime > self.lastMTime
+            if mtime > self.lastMTime:
+                return True
         except FileNotFoundError:
             return False
+
+    def syncMTime(self):
+        self.lastMTime = os.path.getmtime(self.filePath)
 
     def callRefreshFunction(self):
         self.refreshFunction()
