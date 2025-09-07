@@ -42,6 +42,9 @@ def runSubProcess(
 
 
 def killSubProcess(proc: Popen[str]):
+    if proc.poll() is not None:
+        return
+        
     if sys.platform == "win32":
         proc.send_signal(signal.CTRL_BREAK_EVENT)
     else:

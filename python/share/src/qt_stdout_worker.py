@@ -18,9 +18,11 @@ class QTStdoutWorker(QThread):
         while self.running and self.proc.stdout:
             line = self.proc.stdout.readline()
             if not line:  # EOF
+                if buffer:
+                    self.lineRead.emit('\n'.join(buffer))
                 break
             buffer.append(line.rstrip())
-
+    
             now = time.time()
             if buffer and (now - lastEmit > 0.1 or len(buffer) > 20):
                 self.lineRead.emit('\n'.join(buffer))
