@@ -11,6 +11,7 @@ system = platform.system()
 
 URL_MARKET_ENGINE = "https://marketengine.onefil.dev"
 URL_MARKET_ENGINE_DOWNLOADS = URL_MARKET_ENGINE + "/downloads"
+URL_MARKET_ENGINE_DOCS = URL_MARKET_ENGINE + "/docs"
 URL_MARKET_ENGINE_UPDATE_ITEMS = URL_MARKET_ENGINE + "/api/update_items"
 URL_MARKET_ENGINE_FETCH_ITEMS = URL_MARKET_ENGINE + "/api/fetch_items"
 URL_MARKET_ENGINE_FETCH_SERVER_STATUS = URL_MARKET_ENGINE + "/api/fetch_status"

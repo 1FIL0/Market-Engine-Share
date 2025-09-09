@@ -28,9 +28,9 @@ def loadIcons():
     global iconDelete
     global iconFavDisabled
     global iconFavEnabled
-    iconDelete = QIcon(os.path.join(definitions.PATH_DIST_ASSETS, "icons", "delete.png"))
-    iconFavDisabled = QIcon(os.path.join(definitions.PATH_DIST_ASSETS, "icons", "fav_disabled.png"))
-    iconFavEnabled = QIcon(os.path.join(definitions.PATH_DIST_ASSETS, "icons", "fav_enabled.png"))
+    iconDelete = QIcon(os.path.join(definitions.PATH_DIST_ASSETS, "icons_market_engine", "delete.png"))
+    iconFavDisabled = QIcon(os.path.join(definitions.PATH_DIST_ASSETS, "icons_market_engine", "fav_disabled.png"))
+    iconFavEnabled = QIcon(os.path.join(definitions.PATH_DIST_ASSETS, "icons_market_engine", "fav_enabled.png"))
 
 def loadFont(path: str, size: int, weight: int) -> QFont:
     fontID = QFontDatabase.addApplicationFont(path)
