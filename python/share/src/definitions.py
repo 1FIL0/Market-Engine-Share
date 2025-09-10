@@ -76,11 +76,17 @@ PATH_MEIPASS = Path(getattr(sys, "_MEIPASS", Path(".").resolve()))
 PATH_BINARY_DIR = Path(sys.executable).parent
 
 # Find bin directory from executable. WARNING - Must check in this specific order in case some proper mong tries to exploit into creating a fake bin/ directory.
-# made this fent work after 5 hours at 4:30AM
 PATH_DIST_BIN = Path()
 for candidate in [PATH_BINARY_DIR, PATH_BINARY_DIR / "bin", PATH_BINARY_DIR.parent]:
     if candidate.is_dir() and candidate.name == "bin":
         PATH_DIST_BIN = candidate
+        break
+
+# Same thing but for bundled .dll/.so
+PATH_LD_LIBRARY = Path()
+for candidate in [PATH_BINARY_DIR / "usr" / "lib", PATH_BINARY_DIR.parent / "usr" / "lib"]:
+    if candidate.is_dir():
+        PATH_LD_LIBRARY = candidate
         break
 
 PATH_DIST_ASSETS: Path = Path()
