@@ -141,7 +141,7 @@ elif shared_args.argDist == "release":
     PATH_DIST_ASSETS = PATH_MEIPASS / "market_engine_assets"
     PATH_DIST_DRIVERS = PATH_MEIPASS / "drivers"
 
-
+# NOT IN USE ANYMORE BUT MIGHT BE IN THE FUTURE
 if system == "Windows":
     PATH_DIST_DRIVER_GECKODRIVER_PATH = PATH_DIST_DRIVERS / "geckodriver_win32.exe"
 elif system == "Linux":
