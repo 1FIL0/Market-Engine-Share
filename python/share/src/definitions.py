@@ -5,7 +5,9 @@ import sys
 import shared_args
 from pathlib import Path
 
-system = platform.system()
+SYSTEM = platform.system()
+SYSTEM_WINDOWS = "Windows"
+SYSTEM_LINUX = "Linux"
 
 # _____ URLS _____ #
 
@@ -29,7 +31,7 @@ PATH_DATA_API: Path = Path()
 PATH_CONFIG_CLIENT: Path = Path()
 PATH_CONFIG_API: Path = Path()
 
-if system == "Windows":
+if SYSTEM == "Windows":
     APPDATA = Path(os.environ['APPDATA'])
     LOCALAPPDATA = Path(os.environ.get('LOCALAPPDATA', os.environ['APPDATA']))
     PATH_CONFIG_CLIENT = APPDATA / 'market_engine_client'
@@ -37,7 +39,7 @@ if system == "Windows":
     PATH_DATA_CLIENT = LOCALAPPDATA / 'market_engine_client'
     PATH_DATA_API = LOCALAPPDATA / 'market_engine_api'
 
-elif system == "Linux":
+elif SYSTEM == "Linux":
     HOME = Path(os.environ['HOME'])
     PATH_CONFIG_CLIENT = HOME / '.config' / 'market_engine_client'
     PATH_CONFIG_API = HOME / '.config' / 'market_engine_api'
@@ -82,11 +84,11 @@ for candidate in [PATH_BINARY_DIR, PATH_BINARY_DIR / "bin", PATH_BINARY_DIR.pare
         PATH_DIST_BIN = candidate
         break
 
-# Same thing but for bundled .dll/.so
-PATH_LD_LIBRARY = Path()
+# Same thing but for bundled .dll/.so.
+PATH_LIB = Path()
 for candidate in [PATH_BINARY_DIR / "usr" / "lib", PATH_BINARY_DIR.parent / "usr" / "lib"]:
     if candidate.is_dir():
-        PATH_LD_LIBRARY = candidate
+        PATH_LIB = candidate
         break
 
 PATH_DIST_ASSETS: Path = Path()
@@ -121,18 +123,18 @@ if shared_args.argDist == "dev":
     PATH_DIST_ASSETS = PATH_MARKET_ENGINE_ASSETS
     PATH_DIST_DRIVERS = PATH_MARKET_ENGINE_DRIVERS
 
-    if system == "Linux":
+    if SYSTEM == "Linux":
         PATH_DIST_CLIENT_TRADEUP_ENGINE_BINARY = PATH_CLIENT_TRADEUP_ENGINE / "build" / "build_linux64" / "engine"
-    elif system == "Windows":
+    elif SYSTEM == "Windows":
         PATH_DIST_CLIENT_TRADEUP_ENGINE_BINARY = PATH_CLIENT_TRADEUP_ENGINE / "build" / "build_win64" / "engine"
 
 elif shared_args.argDist == "release":
-    if system == "Linux":
+    if SYSTEM == "Linux":
         PATH_DIST_CLIENT_APP_BINARY = PATH_DIST_BIN / "application" / "application"
         PATH_DIST_CLIENT_SONAR_BINARY = PATH_DIST_BIN / "sonar" / "sonar"
         PATH_DIST_CLIENT_TRADEUP_ENGINE_BINARY = PATH_DIST_BIN / "engine"
         PATH_DIST_API_SONAR_BINARY = PATH_DIST_BIN / "sonar" / "sonar"
-    elif system == "Windows":
+    elif SYSTEM == "Windows":
         PATH_DIST_CLIENT_APP_BINARY = PATH_DIST_BIN / "application" / "application.exe"
         PATH_DIST_CLIENT_SONAR_BINARY = PATH_DIST_BIN / "sonar" / "sonar.exe"
         PATH_DIST_CLIENT_TRADEUP_ENGINE_BINARY = PATH_DIST_BIN / "engine.exe"
@@ -142,9 +144,9 @@ elif shared_args.argDist == "release":
     PATH_DIST_DRIVERS = PATH_MEIPASS / "drivers"
 
 # NOT IN USE ANYMORE BUT MIGHT BE IN THE FUTURE
-if system == "Windows":
+if SYSTEM == "Windows":
     PATH_DIST_DRIVER_GECKODRIVER_PATH = PATH_DIST_DRIVERS / "geckodriver_win32.exe"
-elif system == "Linux":
+elif SYSTEM == "Linux":
     PATH_DIST_DRIVER_GECKODRIVER_PATH = PATH_DIST_DRIVERS / "geckodriver_linux64"
 
 
