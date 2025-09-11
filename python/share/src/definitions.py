@@ -86,7 +86,7 @@ for candidate in [PATH_BINARY_DIR, PATH_BINARY_DIR / "bin", PATH_BINARY_DIR.pare
 
 # Same thing but for bundled .dll/.so.
 PATH_LIB = Path()
-for candidate in [PATH_BINARY_DIR / "usr" / "lib", PATH_BINARY_DIR.parent / "usr" / "lib"]:
+for candidate in [PATH_BINARY_DIR / "usr" / "lib", PATH_BINARY_DIR.parent / "usr" / "lib", PATH_BINARY_DIR.parent.parent / "usr" / "lib"]:
     if candidate.is_dir():
         PATH_LIB = candidate
         break
