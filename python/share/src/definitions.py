@@ -99,6 +99,7 @@ PATH_DIST_API_APP_BINARY: Path = Path()
 PATH_DIST_API_SONAR_BINARY: Path = Path()
 PATH_DIST_DRIVERS: Path = Path()
 PATH_DIST_DRIVER_GECKODRIVER_PATH: Path = Path()
+PATH_MARKET_ENGINE_SOURCE: Path = Path()
 
 # _____ DEV / RELEASE _____ #
 if shared_args.argDist == "dev":
@@ -149,6 +150,18 @@ if SYSTEM == "Windows":
 elif SYSTEM == "Linux":
     PATH_DIST_DRIVER_GECKODRIVER_PATH = PATH_DIST_DRIVERS / "geckodriver_linux64"
 
+# _____ FUCK WINDOWS ______ #
+
+PYTHON_CMD_CLIENT = Path()
+PYTHON_CMD_API = Path()
+
+if SYSTEM == "Windows":
+    PYTHON_CMD_CLIENT = PATH_MARKET_ENGINE_SOURCE / "venvs" / "windows_x86_64" / "client_venv" / "Scripts" / "python.exe" 
+    PYTHON_CMD_API = PATH_MARKET_ENGINE_SOURCE / "venvs" / "windows_x86_64" / "api_venv" / "Scripts" / "python.exe" 
+
+elif SYSTEM == "Linux":
+    PYTHON_CMD_CLIENT = PATH_MARKET_ENGINE_SOURCE / "venvs" / "linux_x86_64" / "client_venv" / "bin" / "python3" 
+    PYTHON_CMD_API = PATH_MARKET_ENGINE_SOURCE / "venvs" / "linux_x86_64" / "api_venv" / "bin" / "python3" 
 
 consts = types.SimpleNamespace()
 
