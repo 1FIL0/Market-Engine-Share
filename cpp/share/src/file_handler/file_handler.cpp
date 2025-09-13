@@ -9,7 +9,7 @@
 #include "logger.hpp"
 #ifdef _WIN32
 #include <windows.h>
-#else
+#elif __linux__
 #include <cstdio>
 #endif
 
@@ -50,7 +50,7 @@ void FILES::writeFileAtomic(const std::string &path, const std::string &data)
             DWORD err = GetLastError();
             throw std::runtime_error("Failed to replace file atomically (Windows error " + std::to_string(err) + ")");
         }
-    #else
+    #elif __linux__
         if (std::rename(tmpPath.c_str(), path.c_str()) != 0) {
             throw std::runtime_error("Failed to rename temporary file to target");
         }
