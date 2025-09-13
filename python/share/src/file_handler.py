@@ -25,11 +25,16 @@ def clearJsonFile(filePath: str):
 
 def replaceJsonDataAtomic(filePath: str, newData: dict[str, Any]):
     dirName = os.path.dirname(filePath)
-    with tempfile.NamedTemporaryFile('w', dir=dirName, delete=False) as tmpFile:
-        json.dump(newData, tmpFile, indent=4)
-        tmpFile.flush()
-        os.fsync(tmpFile.fileno())
-    os.replace(tmpFile.name, filePath)
+    fd, tmpPath = tempfile.mkstemp(dir=dirName)
+    try:
+        with os.fdopen(fd, 'w') as tmpFile:
+            json.dump(newData, tmpFile, indent=4)
+            tmpFile.flush()
+            os.fsync(tmpFile.fileno())
+        os.replace(tmpPath, filePath)
+    except Exception:
+        os.remove(tmpPath)
+        raise
 
 def clearJsonFileArray(filePath: str):
     with open(filePath, 'w') as file:
@@ -51,7 +56,8 @@ def appendJsonDataArray(filePath: str, appendedData: Any):
 def readFile(filePath: str, binary: bool = False):
     flags = 'r'
     if binary: flags = 'rb'
-    with open(filePath, flags) as f:
+    encoding = None if binary else "utf-8"
+    with open(filePath, flags, encoding=encoding) as f:
         data = f.read()
         f.close()
         return data

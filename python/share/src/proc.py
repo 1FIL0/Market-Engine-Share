@@ -1,11 +1,11 @@
 import subprocess
 import os
-import signal
 import threading
 import sys
 from typing import IO, Callable, Optional, Union
 from subprocess import Popen
 import logger
+import psutil
 
 def runSubProcess(
     command: list[str],
@@ -19,6 +19,7 @@ def runSubProcess(
             bufsize=1,
             text=True,
             creationflags=subprocess.CREATE_NEW_PROCESS_GROUP,
+            encoding="utf-8"
         )
     else:
         proc = Popen(
@@ -27,6 +28,7 @@ def runSubProcess(
             bufsize=1,
             text=True,
             preexec_fn=os.setsid,
+            encoding="utf-8"
         )
 
     logger.sendMessage(f"Started process {proc.pid}: {command}")
@@ -40,13 +42,28 @@ def runSubProcess(
 
     return proc
 
-
 def killSubProcess(proc: Popen[str]):
     if proc.poll() is not None:
         return
-        
-    if sys.platform == "win32":
-        proc.send_signal(signal.CTRL_BREAK_EVENT)
-    else:
-        os.killpg(os.getpgid(proc.pid), signal.SIGTERM)
-    logger.sendMessage(f"Killed {proc}")
+
+    try:
+        parent = psutil.Process(proc.pid)
+    except psutil.NoSuchProcess:
+        return
+
+    # KILL CHILDREN
+    for child in parent.children(recursive=True):
+        try:
+            child.kill()
+        except psutil.NoSuchProcess:
+            pass
+
+    # KILL PARENT
+    try:
+        parent.kill()
+    except psutil.NoSuchProcess:
+        pass
+
+    parent.wait()
+
+    logger.sendMessage(f"Killed process {proc.pid}")

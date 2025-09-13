@@ -6,6 +6,12 @@
 #include <rapidjson/document.h>
 #include <rapidjson/prettywriter.h>
 #include <rapidjson/stringbuffer.h>
+#include "logger.hpp"
+#ifdef _WIN32
+#include <windows.h>
+#else
+#include <cstdio>
+#endif
 
 USE_NAMESPACE_SHARE
 
@@ -24,6 +30,31 @@ void FILES::writeFile(const std::string &path, const std::string &data)
     outFile.open(path);
     outFile << data;
     outFile.close();
+}
+
+void FILES::writeFileAtomic(const std::string &path, const std::string &data)
+{
+    std::string tmpPath = path + ".tmp";
+
+    std::ofstream tmpFile(tmpPath, std::ios::binary);
+    if (!tmpFile) {
+        LOGGER::sendMessage("Error, cannot open temp file");
+        throw std::runtime_error("Failed to open temp file");
+    }
+    tmpFile << data;
+    tmpFile.flush();
+    tmpFile.close();
+
+    #ifdef _WIN32
+        if (!MoveFileExA(tmpPath.c_str(), path.c_str(), MOVEFILE_REPLACE_EXISTING)) {
+            DWORD err = GetLastError();
+            throw std::runtime_error("Failed to replace file atomically (Windows error " + std::to_string(err) + ")");
+        }
+    #else
+        if (std::rename(tmpPath.c_str(), path.c_str()) != 0) {
+            throw std::runtime_error("Failed to rename temporary file to target");
+        }
+    #endif
 }
 
 void FILES::moveFile(const std::string &path, const std::string &newPath)
