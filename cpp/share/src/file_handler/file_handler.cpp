@@ -30,6 +30,7 @@ void FILES::writeFile(const std::string &path, const std::string &data, std::ios
     std::ofstream outFile;
     outFile.open(path, mode);
     outFile << data;
+    outFile.flush();
     outFile.close();
 }
 
@@ -38,9 +39,22 @@ void FILES::writeFileAtomic(const std::string &path, const std::string &pathTmp,
     writeFile(pathTmp, data, std::ios::binary);
 
     #ifdef _WIN32
-        if (!MoveFileExA(pathTmp.c_str(), path.c_str(), MOVEFILE_REPLACE_EXISTING)) {
+        int retries = 5;
+        int sleepMs = 50;
+        while (retries-- > 0) {
+            if (MoveFileExA(pathTmp.c_str(), path.c_str(), MOVEFILE_REPLACE_EXISTING)) {
+                break;
+            }
             DWORD err = GetLastError();
-            throw std::runtime_error("Failed to replace file atomically (Windows error " + std::to_string(err) + ")");
+            if (err == ERROR_SHARING_VIOLATION) {
+                Sleep(sleepMs);
+            } 
+            else {
+                throw std::runtime_error("Failed to replace file atomically (Windows error " + std::to_string(err) + ")");
+            }
+        }
+        if (retries <= 0) {
+            throw std::runtime_error("Failed to replace file after multiple attempts (Windows sharing violation)");
         }
     #elif __linux__
         moveFile(pathTmp, path);

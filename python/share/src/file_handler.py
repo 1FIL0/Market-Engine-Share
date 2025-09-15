@@ -3,6 +3,7 @@ import os
 import tempfile
 import shutil
 from typing import Any
+import definitions
 
 def makeDir(dirPath: str):
     os.makedirs(dirPath, exist_ok=True)
@@ -23,18 +24,29 @@ def clearJsonFile(filePath: str):
         json.dump(data, file, indent=4)
         file.close()
 
-def replaceJsonDataAtomic(filePath: str, newData: dict[str, Any]):
+def replaceJsonDataAtomic(filePath: str, newData: dict[str, any], retries: int = 5, delay: float = 0.05):
     dirName = os.path.dirname(filePath)
     fd, tmpPath = tempfile.mkstemp(dir=dirName)
     try:
-        with os.fdopen(fd, 'w') as tmpFile:
+        with os.fdopen(fd, 'w', encoding='utf-8') as tmpFile:
             json.dump(newData, tmpFile, indent=4)
             tmpFile.flush()
             os.fsync(tmpFile.fileno())
-        os.replace(tmpPath, filePath)
-    except Exception:
-        os.remove(tmpPath)
-        raise
+
+        if definitions.SYSTEM == definitions.SYSTEM_WINDOWS:
+            for attempt in range(retries):
+                try:
+                    os.replace(tmpPath, filePath)
+                    break
+                except PermissionError:
+                    time.sleep(delay)
+            else:
+                raise RuntimeError(f"Failed to replace {filePath} after {retries} attempts")
+        elif definitions.SYSTEM == definitions.SYSTEM_LINUX:
+            os.replace(tmpPath, filePath)
+    finally:
+        if os.path.exists(tmpPath):
+            os.remove(tmpPath)
 
 def clearJsonFileArray(filePath: str):
     with open(filePath, 'w') as file:

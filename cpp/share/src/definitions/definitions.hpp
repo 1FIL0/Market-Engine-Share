@@ -23,7 +23,7 @@
     #define PATH_DATA_CLIENT_READY_ITEMS                std::string(PATH_DATA_CLIENT) + "\\ready_items.json"
     #define PATH_DATA_CLIENT_MODIFIED_ITEMS             std::string(PATH_DATA_CLIENT) + "\\modified_items.json"
     #define PATH_DATA_CLIENT_PROFITABLE_TRADEUPS        std::string(PATH_DATA_CLIENT) + "\\profitable_tradeups.json"
-    #define PATH_DATA_CLIENT_PROFITABLE_TRADEUPS_TEMP   std::string(PATH_DATA_CLIENT) + "\\profitable_tradeups.json.temp"
+    #define PATH_DATA_CLIENT_PROFITABLE_TRADEUPS_TEMP   std::string(PATH_DATA_CLIENT) + "\\profitable_tradeups.json.engine.temp"
 
 #elif defined(__linux__)
     const std::string PATH_HERE = __FILE__;
@@ -42,7 +42,7 @@
     #define PATH_DATA_CLIENT_READY_ITEMS                std::string(PATH_DATA_CLIENT) + "/ready_items.json"
     #define PATH_DATA_CLIENT_MODIFIED_ITEMS             std::string(PATH_DATA_CLIENT) + "/modified_items.json"
     #define PATH_DATA_CLIENT_PROFITABLE_TRADEUPS        std::string(PATH_DATA_CLIENT) + "/profitable_tradeups.json"
-    #define PATH_DATA_CLIENT_PROFITABLE_TRADEUPS_TEMP   std::string(PATH_DATA_CLIENT) + "/profitable_tradeups.json.temp"
+    #define PATH_DATA_CLIENT_PROFITABLE_TRADEUPS_TEMP   std::string(PATH_DATA_CLIENT) + "/profitable_tradeups.json.engine.temp"
 #endif
 
 START_SHARE_NAMESPACE_MULTI(DEFINITIONS)
