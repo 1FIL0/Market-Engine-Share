@@ -8,6 +8,7 @@
 #include <rapidjson/prettywriter.h>
 #include <rapidjson/stringbuffer.h>
 #include "logger.hpp"
+#include <boost/interprocess/sync/file_lock.hpp>
 #ifdef _WIN32
 #include <windows.h>
 #elif __linux__
@@ -36,6 +37,11 @@ void FILES::writeFile(const std::string &path, const std::string &data, std::ios
 
 void FILES::writeFileAtomic(const std::string &path, const std::string &pathTmp, const std::string &data)
 {
+
+    std::string lockPath = path + ".lock";
+    boost::interprocess::file_lock lock(lockPath.c_str());
+    lock.lock();
+
     writeFile(pathTmp, data, std::ios::binary);
 
     #ifdef _WIN32
@@ -46,6 +52,8 @@ void FILES::writeFileAtomic(const std::string &path, const std::string &pathTmp,
     #elif __linux__
         moveFile(pathTmp, path);
     #endif
+
+    lock.unlock();
 }
 
 void FILES::moveFile(const std::string &path, const std::string &newPath)

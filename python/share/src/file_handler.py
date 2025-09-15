@@ -4,6 +4,7 @@ import tempfile
 import shutil
 from typing import Any
 import definitions
+from filelock import FileLock
 
 def makeDir(dirPath: str):
     os.makedirs(dirPath, exist_ok=True)
@@ -24,11 +25,18 @@ def clearJsonFile(filePath: str):
         json.dump(data, file, indent=4)
         file.close()
 
-def replaceJsonDataAtomic(filePath: str, newData: dict[str, Any]):
-    dirName = os.path.dirname(filePath)
+def replaceJsonDataAtomic(filePath: str, newData: dict[str, Any], lockTimeout: int = 10):
+    lockPath = filePath + ".lock"
+    lock = FileLock(lockPath, timeout=lockTimeout)
+    
+    with lock:
+        writeTempReplace(filePath, newData)
+
+def writeTempReplace(filePath: str, newData: dict[str, Any]):
+    dirName = os.path.dirname(filePath) or "."
     fd, tmpPath = tempfile.mkstemp(dir=dirName)
     try:
-        with os.fdopen(fd, 'w') as tmpFile:
+        with os.fdopen(fd, "w") as tmpFile:
             json.dump(newData, tmpFile, indent=4)
             tmpFile.flush()
             os.fsync(tmpFile.fileno())
