@@ -18,34 +18,39 @@ def runSubProcess(
 ) -> Popen[str]:
 
     proc = None
+    
     if sys.platform == "win32":
         kernel32 = ctypes.windll.kernel32
-    
+
+        # Define missing types
+        SIZE_T = ctypes.c_size_t
+        ULONG_PTR = ctypes.c_size_t  # pointer-sized unsigned long
+
         class JOBOBJECT_BASIC_LIMIT_INFORMATION(ctypes.Structure):
             _fields_ = [
                 ("PerProcessUserTimeLimit", ctypes.wintypes.LARGE_INTEGER),
                 ("PerJobUserTimeLimit", ctypes.wintypes.LARGE_INTEGER),
                 ("LimitFlags", ctypes.wintypes.DWORD),
-                ("MinimumWorkingSetSize", ctypes.wintypes.SIZE_T),
-                ("MaximumWorkingSetSize", ctypes.wintypes.SIZE_T),
+                ("MinimumWorkingSetSize", SIZE_T),
+                ("MaximumWorkingSetSize", SIZE_T),
                 ("ActiveProcessLimit", ctypes.wintypes.DWORD),
-                ("Affinity", ctypes.wintypes.ULONG_PTR),
+                ("Affinity", ULONG_PTR),
                 ("PriorityClass", ctypes.wintypes.DWORD),
                 ("SchedulingClass", ctypes.wintypes.DWORD),
             ]
-    
+
         class JOBOBJECT_EXTENDED_LIMIT_INFORMATION(ctypes.Structure):
             _fields_ = [
                 ("BasicLimitInformation", JOBOBJECT_BASIC_LIMIT_INFORMATION),
                 ("IoInfo", ctypes.c_byte * 48),
-                ("ProcessMemoryLimit", ctypes.wintypes.SIZE_T),
-                ("JobMemoryLimit", ctypes.wintypes.SIZE_T),
-                ("PeakProcessMemoryUsed", ctypes.wintypes.SIZE_T),
-                ("PeakJobMemoryUsed", ctypes.wintypes.SIZE_T),
+                ("ProcessMemoryLimit", SIZE_T),
+                ("JobMemoryLimit", SIZE_T),
+                ("PeakProcessMemoryUsed", SIZE_T),
+                ("PeakJobMemoryUsed", SIZE_T),
             ]
-    
+
         JOB_OBJECT_LIMIT_KILL_ON_JOB_CLOSE = 0x00002000
-    
+
         job = kernel32.CreateJobObjectW(None, None)
         info = JOBOBJECT_EXTENDED_LIMIT_INFORMATION()
         info.BasicLimitInformation.LimitFlags = JOB_OBJECT_LIMIT_KILL_ON_JOB_CLOSE

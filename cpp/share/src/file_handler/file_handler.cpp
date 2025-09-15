@@ -1,5 +1,6 @@
 #include "file_handler.hpp"
 #include <filesystem>
+#include <ios>
 #include <sstream>
 #include <fstream>
 #include <string>
@@ -24,50 +25,31 @@ std::string FILES::readFile(const std::string &path)
     return buffer.str();
 }
 
-void FILES::writeFile(const std::string &path, const std::string &data)
+void FILES::writeFile(const std::string &path, const std::string &data, std::ios_base::openmode mode)
 {
     std::ofstream outFile;
-    outFile.open(path);
+    outFile.open(path, mode);
     outFile << data;
     outFile.close();
 }
 
-void FILES::writeFileAtomic(const std::string &path, const std::string &data)
+void FILES::writeFileAtomic(const std::string &path, const std::string &pathTmp, const std::string &data)
 {
-    std::string tmpPath = path + ".tmp";
-
-    std::ofstream tmpFile(tmpPath, std::ios::binary);
-    if (!tmpFile) {
-        LOGGER::sendMessage("Error, cannot open temp file");
-        throw std::runtime_error("Failed to open temp file");
-    }
-    tmpFile << data;
-    tmpFile.flush();
-    tmpFile.close();
+    writeFile(pathTmp, data, std::ios::binary);
 
     #ifdef _WIN32
-        if (!MoveFileExA(tmpPath.c_str(), path.c_str(), MOVEFILE_REPLACE_EXISTING)) {
+        if (!MoveFileExA(pathTmp.c_str(), path.c_str(), MOVEFILE_REPLACE_EXISTING)) {
             DWORD err = GetLastError();
             throw std::runtime_error("Failed to replace file atomically (Windows error " + std::to_string(err) + ")");
         }
     #elif __linux__
-        if (std::rename(tmpPath.c_str(), path.c_str()) != 0) {
-            throw std::runtime_error("Failed to rename temporary file to target");
-        }
+        moveFile(pathTmp, path);
     #endif
 }
 
 void FILES::moveFile(const std::string &path, const std::string &newPath)
 {
     std::filesystem::rename(path.c_str(), newPath.c_str());
-}
-
-void FILES::appendFile(const std::string &path, const std::string &data)
-{
-    std::ofstream outFile;
-    outFile.open(path, std::ios::app);
-    outFile << data;
-    outFile.close();
 }
 
 void FILES::clearFile(const std::string &path)
