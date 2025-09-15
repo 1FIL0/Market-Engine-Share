@@ -39,6 +39,7 @@ void FILES::writeFileAtomic(const std::string &path, const std::string &pathTmp,
 {
 
     std::string lockPath = path + ".lock";
+    std::ofstream ofs(lockPath, std::ios::app);
     boost::interprocess::file_lock lock(lockPath.c_str());
     lock.lock();
 
@@ -54,6 +55,7 @@ void FILES::writeFileAtomic(const std::string &path, const std::string &pathTmp,
     #endif
 
     lock.unlock();
+    ofs.close();
 }
 
 void FILES::moveFile(const std::string &path, const std::string &newPath)

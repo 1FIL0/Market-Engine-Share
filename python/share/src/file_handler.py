@@ -62,17 +62,19 @@ def appendJsonDataArray(filePath: str, appendedData: Any):
     readFile.close()
     writeFile.close()
 
-def readFile(filePath: str, binary: bool = False):
-    flags = 'r'
-    if binary: flags = 'rb'
+def readFileLocked(filePath: str, binary: bool = False, lockTimeout: int = 10):
+    lockPath = filePath + ".lock"
+    lock = FileLock(lockPath, timeout=lockTimeout)
+
+    flags = "rb" if binary else "r"
     encoding = None if binary else "utf-8"
-    with open(filePath, flags, encoding=encoding) as f:
-        data = f.read()
-        f.close()
-        return data
+
+    with lock:
+        with open(filePath, flags, encoding=encoding) as f:
+            return f.read()
 
 def loadJson(filePath: str) -> dict[Any, Any]:
-    data: str = readFile(filePath)
+    data: str = readFileLocked(filePath)
     jsonData: dict[Any, Any] = json.loads(data)
     return jsonData
     
