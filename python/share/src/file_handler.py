@@ -43,7 +43,6 @@ def writeTempReplace(filePath: str, newData: dict[str, Any]):
         os.replace(tmpPath, filePath)
     except Exception:
         os.remove(tmpPath)
-        raise
 
 def clearJsonFileArray(filePath: str):
     with open(filePath, 'w') as file:
