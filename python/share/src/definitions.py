@@ -311,7 +311,8 @@ consts.COLLECTION_RADIANT = 84
 consts.COLLECTION_BOREAL = 85
 consts.COLLECTION_ASCENT = 86
 consts.COLLECTION_FEVER = 87
-consts.COLLECTION_MAX = 88
+consts.COLLECTION_GENESIS = 88
+consts.COLLECTION_MAX = 89
 
 consts.COLLECTION_OVERPASS_2024_STR = "The Overpass 2024 Collection"
 consts.COLLECTION_GALLERY_STR = "The Gallery Collection"
@@ -401,6 +402,7 @@ consts.COLLECTION_RADIANT_STR = "The Radiant Collection"
 consts.COLLECTION_BOREAL_STR = "The Boreal Collection"
 consts.COLLECTION_ASCENT_STR = "The Ascent Collection"
 consts.COLLECTION_FEVER_STR = "The Fever Collection"
+consts.COLLECTION_GENESIS_STR = "The Genesis Collection"
 
 weapons = [
     "AK-47", "M4A4", "M4A1-S", "AWP", "SG 553", "FAMAS", "Galil AR", "M249", "Negev", 
@@ -566,6 +568,7 @@ def collectionToString(collection: int) -> str:
         case consts.COLLECTION_BOREAL: return consts.COLLECTION_BOREAL_STR
         case consts.COLLECTION_ASCENT: return consts.COLLECTION_ASCENT_STR
         case consts.COLLECTION_FEVER: return consts.COLLECTION_FEVER_STR
+        case consts.COLLECTION_GENESIS: return consts.COLLECTION_GENESIS_STR
         case _: return "?"
 
 def collectionToInt(collection: str) -> int:
@@ -657,6 +660,7 @@ def collectionToInt(collection: str) -> int:
     if collection == consts.COLLECTION_BOREAL_STR: return consts.COLLECTION_BOREAL
     if collection == consts.COLLECTION_ASCENT_STR: return consts.COLLECTION_ASCENT
     if collection == consts.COLLECTION_FEVER_STR: return consts.COLLECTION_FEVER
+    if collection == consts.COLLECTION_GENESIS_STR: return consts.COLLECTION_GENESIS
     return -1
 
 def getMaxCollectionGrade(collection: int) -> int:
@@ -749,6 +753,7 @@ def getMaxCollectionGrade(collection: int) -> int:
         case consts.COLLECTION_BOREAL: return consts.GRADE_CLASSIFIED
         case consts.COLLECTION_ASCENT: return consts.GRADE_CLASSIFIED
         case consts.COLLECTION_FEVER: return consts.GRADE_COVERT
+        case consts.COLLECTION_GENESIS: return consts.GRADE_COVERT
         case _: return -1
 
 def gradeToRGBString(grade: int) -> str:

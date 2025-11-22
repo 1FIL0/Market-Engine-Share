@@ -178,6 +178,7 @@ std::string DEFINITIONS::collectionToString(const int collection)
         case COLLECTION_BOREAL: {return COLLECTION_BOREAL_STR; break;}
         case COLLECTION_ASCENT: {return COLLECTION_ASCENT_STR; break;}
         case COLLECTION_FEVER: {return COLLECTION_FEVER_STR; break;}
+        case COLLECTION_GENESIS: {return COLLECTION_GENESIS_STR; break;}
     }
     
     return "?";
@@ -273,6 +274,7 @@ int DEFINITIONS::collectionToInt(const std::string &collection)
     if (collection == COLLECTION_BOREAL_STR) {return COLLECTION_BOREAL;}
     if (collection == COLLECTION_ASCENT_STR) {return COLLECTION_ASCENT;}
     if (collection == COLLECTION_FEVER_STR) {return COLLECTION_FEVER;}
+    if (collection == COLLECTION_GENESIS_STR) {return COLLECTION_GENESIS;}
     return -1;
 }
 
@@ -367,6 +369,7 @@ int DEFINITIONS::getMaxCollectionGrade(const int collection)
         case COLLECTION_BOREAL: { return GRADE_CLASSIFIED; break;}
         case COLLECTION_ASCENT: { return GRADE_CLASSIFIED; break;}
         case COLLECTION_FEVER: {return GRADE_COVERT; break;}
+        case COLLECTION_GENESIS: {return GRADE_COVERT; break;}
     }
     return -1;
 }
