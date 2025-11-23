@@ -856,246 +856,246 @@ def getMaxCollectionGrade(collection: int) -> int:
 
 def crateToString(crate: int):
     match crate:
-        case CRATE_GENESIS: return CRATE_GENESIS_STR
-        case CRATE_FEVER: return CRATE_FEVER_STR
-        case CRATE_GALLERY: return CRATE_GALLERY_STR
-        case CRATE_KILOWATT: return CRATE_KILOWATT_STR
-        case CRATE_ANUBIS: return CRATE_ANUBIS_STR
-        case CRATE_REVOLUTION: return CRATE_REVOLUTION_STR
-        case CRATE_RECOIL: return CRATE_RECOIL_STR
-        case CRATE_DREAMS_AND_NIGHTMARES: return CRATE_DREAMS_AND_NIGHTMARES_STR
-        case CRATE_RIPTIDE: return CRATE_RIPTIDE_STR
-        case CRATE_SNAKEBITE: return CRATE_SNAKEBITE_STR
-        case CRATE_BROKEN_FANG: return CRATE_BROKEN_FANG_STR
-        case CRATE_FRACTURE: return CRATE_FRACTURE_STR
-        case CRATE_PRISMA2: return CRATE_PRISMA2_STR
-        case CRATE_CS20: return CRATE_CS20_STR
-        case CRATE_XRAY: return CRATE_XRAY_STR
-        case CRATE_SHATTERED_WEB: return CRATE_SHATTERED_WEB_STR
-        case CRATE_PRISMA: return CRATE_PRISMA_STR
-        case CRATE_DANGER_ZONE: return CRATE_DANGER_ZONE_STR
-        case CRATE_HORIZON: return CRATE_HORIZON_STR
-        case CRATE_CLUTCH: return CRATE_CLUTCH_STR
-        case CRATE_SPECTRUM2: return CRATE_SPECTRUM2_STR
-        case CRATE_HYDRA: return CRATE_HYDRA_STR
-        case CRATE_SPECTRUM: return CRATE_SPECTRUM_STR
-        case CRATE_GLOVE: return CRATE_GLOVE_STR
-        case CRATE_GAMMA2: return CRATE_GAMMA2_STR
-        case CRATE_GAMMA: return CRATE_GAMMA_STR
-        case CRATE_CHROMA3: return CRATE_CHROMA3_STR
-        case CRATE_WILDFIRE: return CRATE_WILDFIRE_STR
-        case CRATE_REVOLVER: return CRATE_REVOLVER_STR
-        case CRATE_SHADOW: return CRATE_SHADOW_STR
-        case CRATE_FALCHION: return CRATE_FALCHION_STR
-        case CRATE_CHROMA2: return CRATE_CHROMA2_STR
-        case CRATE_CHROMA: return CRATE_CHROMA_STR
-        case CRATE_VANGUARD: return CRATE_VANGUARD_STR
-        case CRATE_ESPORTS_2014_SUMMER: return CRATE_ESPORTS_2014_SUMMER_STR
-        case CRATE_BREAKOUT: return CRATE_BREAKOUT_STR
-        case CRATE_HUNTSMAN: return CRATE_HUNTSMAN_STR
-        case CRATE_PHEONIX: return CRATE_PHEONIX_STR
-        case CRATE_WEAPON_CASE_3: return CRATE_WEAPON_CASE_3_STR
-        case CRATE_WINTER_OFFENSIVE: return CRATE_WINTER_OFFENSIVE_STR
-        case CRATE_ESPORTS_2013_WINTER: return CRATE_ESPORTS_2013_WINTER_STR
-        case CRATE_WEAPON_CASE_2: return CRATE_WEAPON_CASE_2_STR
-        case CRATE_BRAVO: return CRATE_BRAVO_STR
-        case CRATE_ESPORTS_2013: return CRATE_ESPORTS_2013_STR
-        case CRATE_WEAPON_CASE: return CRATE_WEAPON_CASE_STR
+        case consts.CRATE_GENESIS: return consts.CRATE_GENESIS_STR
+        case consts.CRATE_FEVER: return consts.CRATE_FEVER_STR
+        case consts.CRATE_GALLERY: return consts.CRATE_GALLERY_STR
+        case consts.CRATE_KILOWATT: return consts.CRATE_KILOWATT_STR
+        case consts.CRATE_ANUBIS: return consts.CRATE_ANUBIS_STR
+        case consts.CRATE_REVOLUTION: return consts.CRATE_REVOLUTION_STR
+        case consts.CRATE_RECOIL: return consts.CRATE_RECOIL_STR
+        case consts.CRATE_DREAMS_AND_NIGHTMARES: return consts.CRATE_DREAMS_AND_NIGHTMARES_STR
+        case consts.CRATE_RIPTIDE: return consts.CRATE_RIPTIDE_STR
+        case consts.CRATE_SNAKEBITE: return consts.CRATE_SNAKEBITE_STR
+        case consts.CRATE_BROKEN_FANG: return consts.CRATE_BROKEN_FANG_STR
+        case consts.CRATE_FRACTURE: return consts.CRATE_FRACTURE_STR
+        case consts.CRATE_PRISMA2: return consts.CRATE_PRISMA2_STR
+        case consts.CRATE_CS20: return consts.CRATE_CS20_STR
+        case consts.CRATE_XRAY: return consts.CRATE_XRAY_STR
+        case consts.CRATE_SHATTERED_WEB: return consts.CRATE_SHATTERED_WEB_STR
+        case consts.CRATE_PRISMA: return consts.CRATE_PRISMA_STR
+        case consts.CRATE_DANGER_ZONE: return consts.CRATE_DANGER_ZONE_STR
+        case consts.CRATE_HORIZON: return consts.CRATE_HORIZON_STR
+        case consts.CRATE_CLUTCH: return consts.CRATE_CLUTCH_STR
+        case consts.CRATE_SPECTRUM2: return consts.CRATE_SPECTRUM2_STR
+        case consts.CRATE_HYDRA: return consts.CRATE_HYDRA_STR
+        case consts.CRATE_SPECTRUM: return consts.CRATE_SPECTRUM_STR
+        case consts.CRATE_GLOVE: return consts.CRATE_GLOVE_STR
+        case consts.CRATE_GAMMA2: return consts.CRATE_GAMMA2_STR
+        case consts.CRATE_GAMMA: return consts.CRATE_GAMMA_STR
+        case consts.CRATE_CHROMA3: return consts.CRATE_CHROMA3_STR
+        case consts.CRATE_WILDFIRE: return consts.CRATE_WILDFIRE_STR
+        case consts.CRATE_REVOLVER: return consts.CRATE_REVOLVER_STR
+        case consts.CRATE_SHADOW: return consts.CRATE_SHADOW_STR
+        case consts.CRATE_FALCHION: return consts.CRATE_FALCHION_STR
+        case consts.CRATE_CHROMA2: return consts.CRATE_CHROMA2_STR
+        case consts.CRATE_CHROMA: return consts.CRATE_CHROMA_STR
+        case consts.CRATE_VANGUARD: return consts.CRATE_VANGUARD_STR
+        case consts.CRATE_ESPORTS_2014_SUMMER: return consts.CRATE_ESPORTS_2014_SUMMER_STR
+        case consts.CRATE_BREAKOUT: return consts.CRATE_BREAKOUT_STR
+        case consts.CRATE_HUNTSMAN: return consts.CRATE_HUNTSMAN_STR
+        case consts.CRATE_PHEONIX: return consts.CRATE_PHEONIX_STR
+        case consts.CRATE_WEAPON_CASE_3: return consts.CRATE_WEAPON_CASE_3_STR
+        case consts.CRATE_WINTER_OFFENSIVE: return consts.CRATE_WINTER_OFFENSIVE_STR
+        case consts.CRATE_ESPORTS_2013_WINTER: return consts.CRATE_ESPORTS_2013_WINTER_STR
+        case consts.CRATE_WEAPON_CASE_2: return consts.CRATE_WEAPON_CASE_2_STR
+        case consts.CRATE_BRAVO: return consts.CRATE_BRAVO_STR
+        case consts.CRATE_ESPORTS_2013: return consts.CRATE_ESPORTS_2013_STR
+        case consts.CRATE_WEAPON_CASE: return consts.CRATE_WEAPON_CASE_STR
         case _: return "?"
 
 def crateToInt(crate: str):
-    if crate == CRATE_GENESIS_STR: return CRATE_GENESIS
-    if crate == CRATE_FEVER_STR: return CRATE_FEVER
-    if crate == CRATE_GALLERY_STR: return CRATE_GALLERY
-    if crate == CRATE_KILOWATT_STR: return CRATE_KILOWATT
-    if crate == CRATE_ANUBIS_STR: return CRATE_ANUBIS
-    if crate == CRATE_REVOLUTION_STR: return CRATE_REVOLUTION
-    if crate == CRATE_RECOIL_STR: return CRATE_RECOIL
-    if crate == CRATE_DREAMS_AND_NIGHTMARES_STR: return CRATE_DREAMS_AND_NIGHTMARES
-    if crate == CRATE_RIPTIDE_STR: return CRATE_RIPTIDE
-    if crate == CRATE_SNAKEBITE_STR: return CRATE_SNAKEBITE
-    if crate == CRATE_BROKEN_FANG_STR: return CRATE_BROKEN_FANG
-    if crate == CRATE_FRACTURE_STR: return CRATE_FRACTURE
-    if crate == CRATE_PRISMA2_STR: return CRATE_PRISMA2
-    if crate == CRATE_CS20_STR: return CRATE_CS20
-    if crate == CRATE_XRAY_STR: return CRATE_XRAY
-    if crate == CRATE_SHATTERED_WEB_STR: return CRATE_SHATTERED_WEB
-    if crate == CRATE_PRISMA_STR: return CRATE_PRISMA
-    if crate == CRATE_DANGER_ZONE_STR: return CRATE_DANGER_ZONE
-    if crate == CRATE_HORIZON_STR: return CRATE_HORIZON
-    if crate == CRATE_CLUTCH_STR: return CRATE_CLUTCH
-    if crate == CRATE_SPECTRUM2_STR: return CRATE_SPECTRUM2
-    if crate == CRATE_HYDRA_STR: return CRATE_HYDRA
-    if crate == CRATE_SPECTRUM_STR: return CRATE_SPECTRUM
-    if crate == CRATE_GLOVE_STR: return CRATE_GLOVE
-    if crate == CRATE_GAMMA2_STR: return CRATE_GAMMA2
-    if crate == CRATE_GAMMA_STR: return CRATE_GAMMA
-    if crate == CRATE_CHROMA3_STR: return CRATE_CHROMA3
-    if crate == CRATE_WILDFIRE_STR: return CRATE_WILDFIRE
-    if crate == CRATE_REVOLVER_STR: return CRATE_REVOLVER
-    if crate == CRATE_SHADOW_STR: return CRATE_SHADOW
-    if crate == CRATE_FALCHION_STR: return CRATE_FALCHION
-    if crate == CRATE_CHROMA2_STR: return CRATE_CHROMA2
-    if crate == CRATE_CHROMA_STR: return CRATE_CHROMA
-    if crate == CRATE_VANGUARD_STR: return CRATE_VANGUARD
-    if crate == CRATE_ESPORTS_2014_SUMMER_STR: return CRATE_ESPORTS_2014_SUMMER
-    if crate == CRATE_BREAKOUT_STR: return CRATE_BREAKOUT
-    if crate == CRATE_HUNTSMAN_STR: return CRATE_HUNTSMAN
-    if crate == CRATE_PHEONIX_STR: return CRATE_PHEONIX
-    if crate == CRATE_WEAPON_CASE_3_STR: return CRATE_WEAPON_CASE_3
-    if crate == CRATE_WINTER_OFFENSIVE_STR: return CRATE_WINTER_OFFENSIVE
-    if crate == CRATE_ESPORTS_2013_WINTER_STR: return CRATE_ESPORTS_2013_WINTER
-    if crate == CRATE_WEAPON_CASE_2_STR: return CRATE_WEAPON_CASE_2
-    if crate == CRATE_BRAVO_STR: return CRATE_BRAVO
-    if crate == CRATE_ESPORTS_2013_STR: return CRATE_ESPORTS_2013
-    if crate == CRATE_WEAPON_CASE_STR: return CRATE_WEAPON_CASE
+    if crate == consts.CRATE_GENESIS_STR: return consts.CRATE_GENESIS
+    if crate == consts.CRATE_FEVER_STR: return consts.CRATE_FEVER
+    if crate == consts.CRATE_GALLERY_STR: return consts.CRATE_GALLERY
+    if crate == consts.CRATE_KILOWATT_STR: return consts.CRATE_KILOWATT
+    if crate == consts.CRATE_ANUBIS_STR: return consts.CRATE_ANUBIS
+    if crate == consts.CRATE_REVOLUTION_STR: return consts.CRATE_REVOLUTION
+    if crate == consts.CRATE_RECOIL_STR: return consts.CRATE_RECOIL
+    if crate == consts.CRATE_DREAMS_AND_NIGHTMARES_STR: return consts.CRATE_DREAMS_AND_NIGHTMARES
+    if crate == consts.CRATE_RIPTIDE_STR: return consts.CRATE_RIPTIDE
+    if crate == consts.CRATE_SNAKEBITE_STR: return consts.CRATE_SNAKEBITE
+    if crate == consts.CRATE_BROKEN_FANG_STR: return consts.CRATE_BROKEN_FANG
+    if crate == consts.CRATE_FRACTURE_STR: return consts.CRATE_FRACTURE
+    if crate == consts.CRATE_PRISMA2_STR: return consts.CRATE_PRISMA2
+    if crate == consts.CRATE_CS20_STR: return consts.CRATE_CS20
+    if crate == consts.CRATE_XRAY_STR: return consts.CRATE_XRAY
+    if crate == consts.CRATE_SHATTERED_WEB_STR: return consts.CRATE_SHATTERED_WEB
+    if crate == consts.CRATE_PRISMA_STR: return consts.CRATE_PRISMA
+    if crate == consts.CRATE_DANGER_ZONE_STR: return consts.CRATE_DANGER_ZONE
+    if crate == consts.CRATE_HORIZON_STR: return consts.CRATE_HORIZON
+    if crate == consts.CRATE_CLUTCH_STR: return consts.CRATE_CLUTCH
+    if crate == consts.CRATE_SPECTRUM2_STR: return consts.CRATE_SPECTRUM2
+    if crate == consts.CRATE_HYDRA_STR: return consts.CRATE_HYDRA
+    if crate == consts.CRATE_SPECTRUM_STR: return consts.CRATE_SPECTRUM
+    if crate == consts.CRATE_GLOVE_STR: return consts.CRATE_GLOVE
+    if crate == consts.CRATE_GAMMA2_STR: return consts.CRATE_GAMMA2
+    if crate == consts.CRATE_GAMMA_STR: return consts.CRATE_GAMMA
+    if crate == consts.CRATE_CHROMA3_STR: return consts.CRATE_CHROMA3
+    if crate == consts.CRATE_WILDFIRE_STR: return consts.CRATE_WILDFIRE
+    if crate == consts.CRATE_REVOLVER_STR: return consts.CRATE_REVOLVER
+    if crate == consts.CRATE_SHADOW_STR: return consts.CRATE_SHADOW
+    if crate == consts.CRATE_FALCHION_STR: return consts.CRATE_FALCHION
+    if crate == consts.CRATE_CHROMA2_STR: return consts.CRATE_CHROMA2
+    if crate == consts.CRATE_CHROMA_STR: return consts.CRATE_CHROMA
+    if crate == consts.CRATE_VANGUARD_STR: return consts.CRATE_VANGUARD
+    if crate == consts.CRATE_ESPORTS_2014_SUMMER_STR: return consts.CRATE_ESPORTS_2014_SUMMER
+    if crate == consts.CRATE_BREAKOUT_STR: return consts.CRATE_BREAKOUT
+    if crate == consts.CRATE_HUNTSMAN_STR: return consts.CRATE_HUNTSMAN
+    if crate == consts.CRATE_PHEONIX_STR: return consts.CRATE_PHEONIX
+    if crate == consts.CRATE_WEAPON_CASE_3_STR: return consts.CRATE_WEAPON_CASE_3
+    if crate == consts.CRATE_WINTER_OFFENSIVE_STR: return consts.CRATE_WINTER_OFFENSIVE
+    if crate == consts.CRATE_ESPORTS_2013_WINTER_STR: return consts.CRATE_ESPORTS_2013_WINTER
+    if crate == consts.CRATE_WEAPON_CASE_2_STR: return consts.CRATE_WEAPON_CASE_2
+    if crate == consts.CRATE_BRAVO_STR: return consts.CRATE_BRAVO
+    if crate == consts.CRATE_ESPORTS_2013_STR: return consts.CRATE_ESPORTS_2013
+    if crate == consts.CRATE_WEAPON_CASE_STR: return consts.CRATE_WEAPON_CASE
     return -1
 
 def getMaxCrateGrade(crate: int):
     match crate:
-        case CRATE_GENESIS: return GRADE_COVERT
-        case CRATE_FEVER: return GRADE_STAR
-        case CRATE_GALLERY: return GRADE_STAR
-        case CRATE_KILOWATT: return GRADE_STAR
-        case CRATE_ANUBIS: return GRADE_COVERT
-        case CRATE_REVOLUTION: return GRADE_STAR
-        case CRATE_RECOIL: return GRADE_STAR
-        case CRATE_DREAMS_AND_NIGHTMARES: return GRADE_STAR
-        case CRATE_RIPTIDE: return GRADE_STAR
-        case CRATE_SNAKEBITE: return GRADE_STAR
-        case CRATE_BROKEN_FANG: return GRADE_STAR
-        case CRATE_FRACTURE: return GRADE_STAR
-        case CRATE_PRISMA2: return GRADE_STAR
-        case CRATE_CS20: return GRADE_STAR
-        case CRATE_XRAY: return GRADE_RESTRICTED
-        case CRATE_SHATTERED_WEB: return GRADE_STAR
-        case CRATE_PRISMA: return GRADE_STAR
-        case CRATE_DANGER_ZONE: return GRADE_STAR
-        case CRATE_HORIZON: return GRADE_STAR
-        case CRATE_CLUTCH: return GRADE_STAR
-        case CRATE_SPECTRUM2: return GRADE_STAR
-        case CRATE_HYDRA: return GRADE_STAR
-        case CRATE_SPECTRUM: return GRADE_STAR
-        case CRATE_GLOVE: return GRADE_STAR
-        case CRATE_GAMMA2: return GRADE_STAR
-        case CRATE_GAMMA: return GRADE_STAR
-        case CRATE_CHROMA3: return GRADE_STAR
-        case CRATE_WILDFIRE: return GRADE_STAR
-        case CRATE_REVOLVER: return GRADE_STAR
-        case CRATE_SHADOW: return GRADE_STAR
-        case CRATE_FALCHION: return GRADE_STAR
-        case CRATE_CHROMA2: return GRADE_STAR
-        case CRATE_CHROMA: return GRADE_STAR
-        case CRATE_VANGUARD: return GRADE_STAR
-        case CRATE_ESPORTS_2014_SUMMER: return GRADE_STAR
-        case CRATE_BREAKOUT: return GRADE_STAR
-        case CRATE_HUNTSMAN: return GRADE_STAR
-        case CRATE_PHEONIX: return GRADE_STAR
-        case CRATE_WEAPON_CASE_3: return GRADE_STAR
-        case CRATE_WINTER_OFFENSIVE: return GRADE_STAR
-        case CRATE_ESPORTS_2013_WINTER: return GRADE_STAR
-        case CRATE_WEAPON_CASE_2: return GRADE_STAR
-        case CRATE_BRAVO: return GRADE_STAR
-        case CRATE_ESPORTS_2013: return GRADE_STAR
-        case CRATE_WEAPON_CASE: return GRADE_STAR
+        case consts.CRATE_GENESIS: return consts.GRADE_COVERT
+        case consts.CRATE_FEVER: return consts.GRADE_STAR
+        case consts.CRATE_GALLERY: return consts.GRADE_STAR
+        case consts.CRATE_KILOWATT: return consts.GRADE_STAR
+        case consts.CRATE_ANUBIS: return consts.GRADE_COVERT
+        case consts.CRATE_REVOLUTION: return consts.GRADE_STAR
+        case consts.CRATE_RECOIL: return consts.GRADE_STAR
+        case consts.CRATE_DREAMS_AND_NIGHTMARES: return consts.GRADE_STAR
+        case consts.CRATE_RIPTIDE: return consts.GRADE_STAR
+        case consts.CRATE_SNAKEBITE: return consts.GRADE_STAR
+        case consts.CRATE_BROKEN_FANG: return consts.GRADE_STAR
+        case consts.CRATE_FRACTURE: return consts.GRADE_STAR
+        case consts.CRATE_PRISMA2: return consts.GRADE_STAR
+        case consts.CRATE_CS20: return consts.GRADE_STAR
+        case consts.CRATE_XRAY: return consts.GRADE_RESTRICTED
+        case consts.CRATE_SHATTERED_WEB: return consts.GRADE_STAR
+        case consts.CRATE_PRISMA: return consts.GRADE_STAR
+        case consts.CRATE_DANGER_ZONE: return consts.GRADE_STAR
+        case consts.CRATE_HORIZON: return consts.GRADE_STAR
+        case consts.CRATE_CLUTCH: return consts.GRADE_STAR
+        case consts.CRATE_SPECTRUM2: return consts.GRADE_STAR
+        case consts.CRATE_HYDRA: return consts.GRADE_STAR
+        case consts.CRATE_SPECTRUM: return consts.GRADE_STAR
+        case consts.CRATE_GLOVE: return consts.GRADE_STAR
+        case consts.CRATE_GAMMA2: return consts.GRADE_STAR
+        case consts.CRATE_GAMMA: return consts.GRADE_STAR
+        case consts.CRATE_CHROMA3: return consts.GRADE_STAR
+        case consts.CRATE_WILDFIRE: return consts.GRADE_STAR
+        case consts.CRATE_REVOLVER: return consts.GRADE_STAR
+        case consts.CRATE_SHADOW: return consts.GRADE_STAR
+        case consts.CRATE_FALCHION: return consts.GRADE_STAR
+        case consts.CRATE_CHROMA2: return consts.GRADE_STAR
+        case consts.CRATE_CHROMA: return consts.GRADE_STAR
+        case consts.CRATE_VANGUARD: return consts.GRADE_STAR
+        case consts.CRATE_ESPORTS_2014_SUMMER: return consts.GRADE_STAR
+        case consts.CRATE_BREAKOUT: return consts.GRADE_STAR
+        case consts.CRATE_HUNTSMAN: return consts.GRADE_STAR
+        case consts.CRATE_PHEONIX: return consts.GRADE_STAR
+        case consts.CRATE_WEAPON_CASE_3: return consts.GRADE_STAR
+        case consts.CRATE_WINTER_OFFENSIVE: return consts.GRADE_STAR
+        case consts.CRATE_ESPORTS_2013_WINTER: return consts.GRADE_STAR
+        case consts.CRATE_WEAPON_CASE_2: return consts.GRADE_STAR
+        case consts.CRATE_BRAVO: return consts.GRADE_STAR
+        case consts.CRATE_ESPORTS_2013: return consts.GRADE_STAR
+        case consts.CRATE_WEAPON_CASE: return consts.GRADE_STAR
         case _: return -1
 
 def crateToCollection(crate: int):
     match crate:
-        case CRATE_GENESIS: return COLLECTION_GENESIS
-        case CRATE_FEVER: return COLLECTION_FEVER
-        case CRATE_GALLERY: return COLLECTION_GALLERY
-        case CRATE_KILOWATT: return COLLECTION_KILOWATT
-        case CRATE_ANUBIS: return COLLECTION_ANUBIS
-        case CRATE_REVOLUTION: return COLLECTION_REVOLUTION
-        case CRATE_RECOIL: return COLLECTION_RECOIL
-        case CRATE_DREAMS_AND_NIGHTMARES: return COLLECTION_DREAMS_AND_NIGHTMARES
-        case CRATE_RIPTIDE: return COLLECTION_RIPTIDE
-        case CRATE_SNAKEBITE: return COLLECTION_SNAKEBITE
-        case CRATE_BROKEN_FANG: return COLLECTION_BROKEN_FANG
-        case CRATE_FRACTURE: return COLLECTION_FRACTURE
-        case CRATE_PRISMA2: return COLLECTION_PRISMA2
-        case CRATE_CS20: return COLLECTION_CS20
-        case CRATE_XRAY: return COLLECTION_XRAY
-        case CRATE_SHATTERED_WEB: return COLLECTION_SHATTERED_WEB
-        case CRATE_PRISMA: return COLLECTION_PRISMA
-        case CRATE_DANGER_ZONE: return COLLECTION_DANGER_ZONE
-        case CRATE_HORIZON: return COLLECTION_HORIZON
-        case CRATE_CLUTCH: return COLLECTION_CLUTCH
-        case CRATE_SPECTRUM2: return COLLECTION_SPECTRUM_2
-        case CRATE_HYDRA: return COLLECTION_HYDRA
-        case CRATE_SPECTRUM: return COLLECTION_SPECTRUM
-        case CRATE_GLOVE: return COLLECTION_GLOVE
-        case CRATE_GAMMA2: return COLLECTION_GAMMA2
-        case CRATE_GAMMA: return COLLECTION_GAMMA
-        case CRATE_CHROMA3: return COLLECTION_CHROMA3
-        case CRATE_WILDFIRE: return COLLECTION_WILDFIRE
-        case CRATE_REVOLVER: return COLLECTION_REVOLVER_CASE
-        case CRATE_SHADOW: return COLLECTION_SHADOW
-        case CRATE_FALCHION: return COLLECTION_FALCHION
-        case CRATE_CHROMA2: return COLLECTION_CHROMA2
-        case CRATE_CHROMA: return COLLECTION_CHROMA
-        case CRATE_VANGUARD: return COLLECTION_VANGUARD
-        case CRATE_ESPORTS_2014_SUMMER: return COLLECTION_ESPORTS_2014_SUMMER
-        case CRATE_BREAKOUT: return COLLECTION_BREAKOUT
-        case CRATE_HUNTSMAN: return COLLECTION_HUNTSMAN
-        case CRATE_PHEONIX: return COLLECTION_PHEONIX
-        case CRATE_WEAPON_CASE_3: return COLLECTION_ARMS_DEAL_3
-        case CRATE_WINTER_OFFENSIVE: return COLLECTION_WINTER_OFFENSIVE
-        case CRATE_ESPORTS_2013_WINTER: return COLLECTION_ESPORTS_2013_WINTER
-        case CRATE_WEAPON_CASE_2: return COLLECTION_ARMS_DEAL_2
-        case CRATE_BRAVO: return COLLECTION_BRAVO
-        case CRATE_ESPORTS_2013: return COLLECTION_ESPORTS_2013
-        case CRATE_WEAPON_CASE: return COLLECTION_ARMS_DEAL
+        case consts.CRATE_GENESIS: return consts.COLLECTION_GENESIS
+        case consts.CRATE_FEVER: return consts.COLLECTION_FEVER
+        case consts.CRATE_GALLERY: return consts.COLLECTION_GALLERY
+        case consts.CRATE_KILOWATT: return consts.COLLECTION_KILOWATT
+        case consts.CRATE_ANUBIS: return consts.COLLECTION_ANUBIS
+        case consts.CRATE_REVOLUTION: return consts.COLLECTION_REVOLUTION
+        case consts.CRATE_RECOIL: return consts.COLLECTION_RECOIL
+        case consts.CRATE_DREAMS_AND_NIGHTMARES: return consts.COLLECTION_DREAMS_AND_NIGHTMARES
+        case consts.CRATE_RIPTIDE: return consts.COLLECTION_RIPTIDE
+        case consts.CRATE_SNAKEBITE: return consts.COLLECTION_SNAKEBITE
+        case consts.CRATE_BROKEN_FANG: return consts.COLLECTION_BROKEN_FANG
+        case consts.CRATE_FRACTURE: return consts.COLLECTION_FRACTURE
+        case consts.CRATE_PRISMA2: return consts.COLLECTION_PRISMA2
+        case consts.CRATE_CS20: return consts.COLLECTION_CS20
+        case consts.CRATE_XRAY: return consts.COLLECTION_XRAY
+        case consts.CRATE_SHATTERED_WEB: return consts.COLLECTION_SHATTERED_WEB
+        case consts.CRATE_PRISMA: return consts.COLLECTION_PRISMA
+        case consts.CRATE_DANGER_ZONE: return consts.COLLECTION_DANGER_ZONE
+        case consts.CRATE_HORIZON: return consts.COLLECTION_HORIZON
+        case consts.CRATE_CLUTCH: return consts.COLLECTION_CLUTCH
+        case consts.CRATE_SPECTRUM2: return consts.COLLECTION_SPECTRUM_2
+        case consts.CRATE_HYDRA: return consts.COLLECTION_HYDRA
+        case consts.CRATE_SPECTRUM: return consts.COLLECTION_SPECTRUM
+        case consts.CRATE_GLOVE: return consts.COLLECTION_GLOVE
+        case consts.CRATE_GAMMA2: return consts.COLLECTION_GAMMA2
+        case consts.CRATE_GAMMA: return consts.COLLECTION_GAMMA
+        case consts.CRATE_CHROMA3: return consts.COLLECTION_CHROMA3
+        case consts.CRATE_WILDFIRE: return consts.COLLECTION_WILDFIRE
+        case consts.CRATE_REVOLVER: return consts.COLLECTION_REVOLVER_CASE
+        case consts.CRATE_SHADOW: return consts.COLLECTION_SHADOW
+        case consts.CRATE_FALCHION: return consts.COLLECTION_FALCHION
+        case consts.CRATE_CHROMA2: return consts.COLLECTION_CHROMA2
+        case consts.CRATE_CHROMA: return consts.COLLECTION_CHROMA
+        case consts.CRATE_VANGUARD: return consts.COLLECTION_VANGUARD
+        case consts.CRATE_ESPORTS_2014_SUMMER: return consts.COLLECTION_ESPORTS_2014_SUMMER
+        case consts.CRATE_BREAKOUT: return consts.COLLECTION_BREAKOUT
+        case consts.CRATE_HUNTSMAN: return consts.COLLECTION_HUNTSMAN
+        case consts.CRATE_PHEONIX: return consts.COLLECTION_PHEONIX
+        case consts.CRATE_WEAPON_CASE_3: return consts.COLLECTION_ARMS_DEAL_3
+        case consts.CRATE_WINTER_OFFENSIVE: return consts.COLLECTION_WINTER_OFFENSIVE
+        case consts.CRATE_ESPORTS_2013_WINTER: return consts.COLLECTION_ESPORTS_2013_WINTER
+        case consts.CRATE_WEAPON_CASE_2: return consts.COLLECTION_ARMS_DEAL_2
+        case consts.CRATE_BRAVO: return consts.COLLECTION_BRAVO
+        case consts.CRATE_ESPORTS_2013: return consts.COLLECTION_ESPORTS_2013
+        case consts.CRATE_WEAPON_CASE: return consts.COLLECTION_ARMS_DEAL
         case _: return -1
 
 def collectionToCrate(collection: int):
     match collection:
-        case COLLECTION_GENESIS: return CRATE_GENESIS
-        case COLLECTION_FEVER: return CRATE_FEVER
-        case COLLECTION_GALLERY: return CRATE_GALLERY
-        case COLLECTION_KILOWATT: return CRATE_KILOWATT
-        case COLLECTION_ANUBIS: return CRATE_ANUBIS
-        case COLLECTION_REVOLUTION: return CRATE_REVOLUTION
-        case COLLECTION_RECOIL: return CRATE_RECOIL
-        case COLLECTION_DREAMS_AND_NIGHTMARES: return CRATE_DREAMS_AND_NIGHTMARES
-        case COLLECTION_RIPTIDE: return CRATE_RIPTIDE
-        case COLLECTION_SNAKEBITE: return CRATE_SNAKEBITE
-        case COLLECTION_BROKEN_FANG: return CRATE_BROKEN_FANG
-        case COLLECTION_FRACTURE: return CRATE_FRACTURE
-        case COLLECTION_PRISMA2: return CRATE_PRISMA2
-        case COLLECTION_CS20: return CRATE_CS20
-        case COLLECTION_XRAY: return CRATE_XRAY
-        case COLLECTION_SHATTERED_WEB: return CRATE_SHATTERED_WEB
-        case COLLECTION_PRISMA: return CRATE_PRISMA
-        case COLLECTION_DANGER_ZONE: return CRATE_DANGER_ZONE
-        case COLLECTION_HORIZON: return CRATE_HORIZON
-        case COLLECTION_CLUTCH: return CRATE_CLUTCH
-        case COLLECTION_SPECTRUM_2: return CRATE_SPECTRUM2
-        case COLLECTION_HYDRA: return CRATE_HYDRA
-        case COLLECTION_SPECTRUM: return CRATE_SPECTRUM
-        case COLLECTION_GLOVE: return CRATE_GLOVE
-        case COLLECTION_GAMMA2: return CRATE_GAMMA2
-        case COLLECTION_GAMMA: return CRATE_GAMMA
-        case COLLECTION_CHROMA3: return CRATE_CHROMA3
-        case COLLECTION_WILDFIRE: return CRATE_WILDFIRE
-        case COLLECTION_REVOLVER_CASE: return CRATE_REVOLVER
-        case COLLECTION_SHADOW: return CRATE_SHADOW
-        case COLLECTION_FALCHION: return CRATE_FALCHION
-        case COLLECTION_CHROMA2: return CRATE_CHROMA2
-        case COLLECTION_CHROMA: return CRATE_CHROMA
-        case COLLECTION_VANGUARD: return CRATE_VANGUARD
-        case COLLECTION_ESPORTS_2014_SUMMER: return CRATE_ESPORTS_2014_SUMMER
-        case COLLECTION_BREAKOUT: return CRATE_BREAKOUT
-        case COLLECTION_HUNTSMAN: return CRATE_HUNTSMAN
-        case COLLECTION_PHEONIX: return CRATE_PHEONIX
-        case COLLECTION_ARMS_DEAL_3: return CRATE_WEAPON_CASE_3
-        case COLLECTION_WINTER_OFFENSIVE: return CRATE_WINTER_OFFENSIVE
-        case COLLECTION_ESPORTS_2013_WINTER: return CRATE_ESPORTS_2013_WINTER
-        case COLLECTION_ARMS_DEAL_2: return CRATE_WEAPON_CASE_2
-        case COLLECTION_BRAVO: return CRATE_BRAVO
-        case COLLECTION_ESPORTS_2013: return CRATE_ESPORTS_2013
-        case COLLECTION_ARMS_DEAL: return CRATE_WEAPON_CASE
+        case consts.COLLECTION_GENESIS: return consts.CRATE_GENESIS
+        case consts.COLLECTION_FEVER: return consts.CRATE_FEVER
+        case consts.COLLECTION_GALLERY: return consts.CRATE_GALLERY
+        case consts.COLLECTION_KILOWATT: return consts.CRATE_KILOWATT
+        case consts.COLLECTION_ANUBIS: return consts.CRATE_ANUBIS
+        case consts.COLLECTION_REVOLUTION: return consts.CRATE_REVOLUTION
+        case consts.COLLECTION_RECOIL: return consts.CRATE_RECOIL
+        case consts.COLLECTION_DREAMS_AND_NIGHTMARES: return consts.CRATE_DREAMS_AND_NIGHTMARES
+        case consts.COLLECTION_RIPTIDE: return consts.CRATE_RIPTIDE
+        case consts.COLLECTION_SNAKEBITE: return consts.CRATE_SNAKEBITE
+        case consts.COLLECTION_BROKEN_FANG: return consts.CRATE_BROKEN_FANG
+        case consts.COLLECTION_FRACTURE: return consts.CRATE_FRACTURE
+        case consts.COLLECTION_PRISMA2: return consts.CRATE_PRISMA2
+        case consts.COLLECTION_CS20: return consts.CRATE_CS20
+        case consts.COLLECTION_XRAY: return consts.CRATE_XRAY
+        case consts.COLLECTION_SHATTERED_WEB: return consts.CRATE_SHATTERED_WEB
+        case consts.COLLECTION_PRISMA: return consts.CRATE_PRISMA
+        case consts.COLLECTION_DANGER_ZONE: return consts.CRATE_DANGER_ZONE
+        case consts.COLLECTION_HORIZON: return consts.CRATE_HORIZON
+        case consts.COLLECTION_CLUTCH: return consts.CRATE_CLUTCH
+        case consts.COLLECTION_SPECTRUM_2: return consts.CRATE_SPECTRUM2
+        case consts.COLLECTION_HYDRA: return consts.CRATE_HYDRA
+        case consts.COLLECTION_SPECTRUM: return consts.CRATE_SPECTRUM
+        case consts.COLLECTION_GLOVE: return consts.CRATE_GLOVE
+        case consts.COLLECTION_GAMMA2: return consts.CRATE_GAMMA2
+        case consts.COLLECTION_GAMMA: return consts.CRATE_GAMMA
+        case consts.COLLECTION_CHROMA3: return consts.CRATE_CHROMA3
+        case consts.COLLECTION_WILDFIRE: return consts.CRATE_WILDFIRE
+        case consts.COLLECTION_REVOLVER_CASE: return consts.CRATE_REVOLVER
+        case consts.COLLECTION_SHADOW: return consts.CRATE_SHADOW
+        case consts.COLLECTION_FALCHION: return consts.CRATE_FALCHION
+        case consts.COLLECTION_CHROMA2: return consts.CRATE_CHROMA2
+        case consts.COLLECTION_CHROMA: return consts.CRATE_CHROMA
+        case consts.COLLECTION_VANGUARD: return consts.CRATE_VANGUARD
+        case consts.COLLECTION_ESPORTS_2014_SUMMER: return consts.CRATE_ESPORTS_2014_SUMMER
+        case consts.COLLECTION_BREAKOUT: return consts.CRATE_BREAKOUT
+        case consts.COLLECTION_HUNTSMAN: return consts.CRATE_HUNTSMAN
+        case consts.COLLECTION_PHEONIX: return consts.CRATE_PHEONIX
+        case consts.COLLECTION_ARMS_DEAL_3: return consts.CRATE_WEAPON_CASE_3
+        case consts.COLLECTION_WINTER_OFFENSIVE: return consts.CRATE_WINTER_OFFENSIVE
+        case consts.COLLECTION_ESPORTS_2013_WINTER: return consts.CRATE_ESPORTS_2013_WINTER
+        case consts.COLLECTION_ARMS_DEAL_2: return consts.CRATE_WEAPON_CASE_2
+        case consts.COLLECTION_BRAVO: return consts.CRATE_BRAVO
+        case consts.COLLECTION_ESPORTS_2013: return consts.CRATE_ESPORTS_2013
+        case consts.COLLECTION_ARMS_DEAL: return consts.CRATE_WEAPON_CASE
         case _: return -1
 
 def gradeToRGBString(grade: int) -> str:
