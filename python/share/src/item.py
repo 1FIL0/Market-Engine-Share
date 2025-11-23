@@ -32,6 +32,7 @@ class MarketItem:
         self.marketPrice: float = -1.0
         self.tradeupable: bool = False
         self.collection: int = -1
+        self.crates: list = []
         self.minFloat: float = -1.0
         self.maxFloat: float = -1.0
         self.imageUrl: str = ""

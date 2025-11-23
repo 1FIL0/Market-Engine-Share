@@ -70,7 +70,7 @@ START_SHARE_NAMESPACE_MULTI(DEFINITIONS)
 
 enum {
     GRADE_CONSUMER = 0, GRADE_INDUSTRIAL, GRADE_MILSPEC, GRADE_RESTRICTED,
-    GRADE_CLASSIFIED, GRADE_COVERT, GRADE_CONTRABAND, GRADE_END
+    GRADE_CLASSIFIED, GRADE_COVERT, GRADE_STAR, GRADE_CONTRABAND, GRADE_END
 };
 
 const std::string GRADE_CONSUMER_STR = "Consumer";
@@ -79,6 +79,7 @@ const std::string GRADE_MILSPEC_STR = "Milspec";
 const std::string GRADE_RESTRICTED_STR = "Restricted";
 const std::string GRADE_CLASSIFIED_STR = "Classified";
 const std::string GRADE_COVERT_STR = "Covert";
+const std::string GRADE_STAR_STR = "Star";
 const std::string GRADE_CONTRABAND_STR = "Contraband";
 
 // CATEGORY
@@ -228,20 +229,93 @@ const std::string COLLECTION_ASCENT_STR = "The Ascent Collection";
 const std::string COLLECTION_FEVER_STR = "The Fever Collection";
 const std::string COLLECTION_GENESIS_STR = "The Genesis Collection";
 
+// CRATES
+
+enum {
+    CRATE_GENESIS, CRATE_FEVER, CRATE_GALLERY, CRATE_KILOWATT, CRATE_ANUBIS,
+    CRATE_REVOLUTION, CRATE_RECOIL, CRATE_DREAMS_AND_NIGHTMARES,
+    CRATE_RIPTIDE, CRATE_SNAKEBITE, CRATE_BROKEN_FANG, CRATE_FRACTURE,
+    CRATE_PRISMA2, CRATE_CS20, CRATE_XRAY, CRATE_SHATTERED_WEB,
+    CRATE_PRISMA, CRATE_DANGER_ZONE, CRATE_HORIZON, CRATE_CLUTCH, CRATE_SPECTRUM2,
+    CRATE_HYDRA, CRATE_SPECTRUM, CRATE_GLOVE, CRATE_GAMMA2, CRATE_GAMMA,
+    CRATE_CHROMA3, CRATE_WILDFIRE, CRATE_REVOLVER, CRATE_SHADOW, CRATE_FALCHION,
+    CRATE_CHROMA2, CRATE_CHROMA, CRATE_VANGUARD, CRATE_ESPORTS_2014_SUMMER,
+    CRATE_BREAKOUT, CRATE_HUNTSMAN, CRATE_PHEONIX, CRATE_WEAPON_CASE_3,
+    CRATE_WINTER_OFFENSIVE, CRATE_ESPORTS_2013_WINTER, CRATE_WEAPON_CASE_2,
+    CRATE_BRAVO, CRATE_ESPORTS_2013, CRATE_WEAPON_CASE, CRATE_END
+};
+
+const std::string CRATE_GENESIS_STR = "Sealed Genesis Terminal";
+const std::string CRATE_FEVER_STR = "Fever Case";
+const std::string CRATE_GALLERY_STR = "Gallery Case";
+const std::string CRATE_KILOWATT_STR = "Kilowatt Case";
+const std::string CRATE_ANUBIS_STR = "Anubis Collection Package";
+const std::string CRATE_REVOLUTION_STR = "Revolution Case";
+const std::string CRATE_RECOIL_STR = "Recoil Case";
+const std::string CRATE_DREAMS_AND_NIGHTMARES_STR = "Dreams & Nightmares Case";
+const std::string CRATE_RIPTIDE_STR = "Operation Riptide Case";
+const std::string CRATE_SNAKEBITE_STR = "Snakebite Case";
+const std::string CRATE_BROKEN_FANG_STR = "Operation Broken Fang Case";
+const std::string CRATE_FRACTURE_STR = "Fracture Case";
+const std::string CRATE_PRISMA2_STR = "Prisma 2 Case";
+const std::string CRATE_CS20_STR = "CS20 Case";
+const std::string CRATE_XRAY_STR = "X-Ray P250 Package";
+const std::string CRATE_SHATTERED_WEB_STR = "Shattered Web Case";
+const std::string CRATE_PRISMA_STR = "Prisma Case";
+const std::string CRATE_DANGER_ZONE_STR = "Danger Zone Case";
+const std::string CRATE_HORIZON_STR = "Horizon Case";
+const std::string CRATE_CLUTCH_STR = "Clutch Case";
+const std::string CRATE_SPECTRUM2_STR = "Spectrum 2 Case";
+const std::string CRATE_HYDRA_STR = "Operation Hydra Case";
+const std::string CRATE_SPECTRUM_STR = "Spectrum Case";
+const std::string CRATE_GLOVE_STR = "Glove Case";
+const std::string CRATE_GAMMA2_STR = "Gamma 2 Case";
+const std::string CRATE_GAMMA_STR = "Gamma Case";
+const std::string CRATE_CHROMA3_STR = "Chroma 3 Case";
+const std::string CRATE_WILDFIRE_STR = "Operation Wildfire Case";
+const std::string CRATE_REVOLVER_STR = "Revolver Case";
+const std::string CRATE_SHADOW_STR = "Shadow Case";
+const std::string CRATE_FALCHION_STR = "Falchion Case";
+const std::string CRATE_CHROMA2_STR = "Chroma 2 Case";
+const std::string CRATE_CHROMA_STR = "Chroma Case";
+const std::string CRATE_VANGUARD_STR = "Operation Vanguard Weapon Case";
+const std::string CRATE_ESPORTS_2014_SUMMER_STR = "eSports 2014 Summer Case";
+const std::string CRATE_BREAKOUT_STR = "Operation Breakout Weapon Case";
+const std::string CRATE_HUNTSMAN_STR = "Huntsman Weapon Case";
+const std::string CRATE_PHEONIX_STR = "Operation Pheonix Weapon Case";
+const std::string CRATE_WEAPON_CASE_3_STR = "CS:GO Weapon Case 3";
+const std::string CRATE_WINTER_OFFENSIVE_STR = "Winter Offensive Weapon Case";
+const std::string CRATE_ESPORTS_2013_WINTER_STR = "eSports 2013 Winter Case";
+const std::string CRATE_WEAPON_CASE_2_STR = "CS:GO Weapon Case 2";
+const std::string CRATE_BRAVO_STR = "Operation Bravo Case";
+const std::string CRATE_ESPORTS_2013_STR = "eSports 2013 Case";
+const std::string CRATE_WEAPON_CASE_STR = "CS:GO Weapon Case";
+
 // FUNC
 
 std::string gradeToString(const int grade);
 std::string categoryToString(const int category);
 std::string wearToString(const int wear);
+
 int gradeToInt(const std::string &grade);
 int categoryToInt(const std::string &category);
 int wearToInt(const std::string &wear);
+
 float wearToMinFloat(const int wear);
 float wearToMaxFloat(const int wear);
 int floatToWear(const float itemFloat);
+
 std::string collectionToString(const int collection);
 int collectionToInt(const std::string &collection);
 int getMaxCollectionGrade(const int collection);
+
+std::string crateToString(const int crate);
+int crateToInt(const std::string &crate);
+int getMaxCrateGrade(const int crate);
+
+int crateToCollection(const int crate);
+int collectionToCrate(const int collection);
+
 float itemFloatValToInt(const float val);
 
 END_SHARE_NAMESPACE
