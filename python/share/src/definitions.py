@@ -314,6 +314,7 @@ consts.COLLECTION_ASCENT = 86
 consts.COLLECTION_FEVER = 87
 consts.COLLECTION_GENESIS = 88
 consts.COLLECTION_MAX = 89
+consts.COLLECTION_UNKNOWN = -1
 
 consts.COLLECTION_OVERPASS_2024_STR = "The Overpass 2024 Collection"
 consts.COLLECTION_GALLERY_STR = "The Gallery Collection"
@@ -453,6 +454,7 @@ consts.CRATE_BRAVO = 42
 consts.CRATE_ESPORTS_2013 = 43
 consts.CRATE_WEAPON_CASE = 44
 consts.CRATE_END = 45
+consts.CRATE_UNKNOWN = -1
 
 consts.CRATE_GENESIS_STR = "Sealed Genesis Terminal"
 consts.CRATE_FEVER_STR = "Fever Case"
@@ -759,7 +761,7 @@ def collectionToInt(collection: str) -> int:
     if collection == consts.COLLECTION_ASCENT_STR: return consts.COLLECTION_ASCENT
     if collection == consts.COLLECTION_FEVER_STR: return consts.COLLECTION_FEVER
     if collection == consts.COLLECTION_GENESIS_STR: return consts.COLLECTION_GENESIS
-    return -1
+    return consts.COLLECTION_UNKNOWN
 
 def getMaxCollectionGrade(collection: int) -> int:
     match collection:
@@ -949,7 +951,7 @@ def crateToInt(crate: str):
     if crate == consts.CRATE_BRAVO_STR: return consts.CRATE_BRAVO
     if crate == consts.CRATE_ESPORTS_2013_STR: return consts.CRATE_ESPORTS_2013
     if crate == consts.CRATE_WEAPON_CASE_STR: return consts.CRATE_WEAPON_CASE
-    return -1
+    return consts.CRATE_UNKNOWN
 
 def getMaxCrateGrade(crate: int):
     match crate:
@@ -1047,7 +1049,7 @@ def crateToCollection(crate: int):
         case consts.CRATE_BRAVO: return consts.COLLECTION_BRAVO
         case consts.CRATE_ESPORTS_2013: return consts.COLLECTION_ESPORTS_2013
         case consts.CRATE_WEAPON_CASE: return consts.COLLECTION_ARMS_DEAL
-        case _: return -1
+        case _: return consts.COLLECTION_UNKNOWN
 
 def collectionToCrate(collection: int):
     match collection:
@@ -1096,7 +1098,7 @@ def collectionToCrate(collection: int):
         case consts.COLLECTION_BRAVO: return consts.CRATE_BRAVO
         case consts.COLLECTION_ESPORTS_2013: return consts.CRATE_ESPORTS_2013
         case consts.COLLECTION_ARMS_DEAL: return consts.CRATE_WEAPON_CASE
-        case _: return -1
+        case _: return consts.CRATE_UNKNOWN
 
 def gradeToRGBString(grade: int) -> str:
     match grade:
