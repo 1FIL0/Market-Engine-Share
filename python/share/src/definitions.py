@@ -199,6 +199,7 @@ consts.GRADE_MILSPEC_RGB_STR = "0, 100, 255"
 consts.GRADE_RESTRICTED_RGB_STR = "136, 71, 255"
 consts.GRADE_CLASSIFIED_RGB_STR = "211, 44, 230"
 consts.GRADE_COVERT_RGB_STR = "235, 75, 75"
+consts.GRADE_STAR_RGB_STR = "212, 175, 55"
 consts.GRADE_CONTRABAND_RGB_STR = "228, 174, 57"
 
 # _____ CATEGORIES ______ #
@@ -856,6 +857,9 @@ def getMaxCollectionGrade(collection: int) -> int:
         case consts.COLLECTION_GENESIS: return consts.GRADE_COVERT
         case _: return -1
 
+def validCollection(collection: int):
+    return collection >= 0 and collection < consts.COLLECTION_MAX
+
 def crateToString(crate: int):
     match crate:
         case consts.CRATE_GENESIS: return consts.CRATE_GENESIS_STR
@@ -1108,5 +1112,6 @@ def gradeToRGBString(grade: int) -> str:
         case consts.GRADE_RESTRICTED: return consts.GRADE_RESTRICTED_RGB_STR
         case consts.GRADE_CLASSIFIED: return consts.GRADE_CLASSIFIED_RGB_STR
         case consts.GRADE_COVERT: return consts.GRADE_COVERT_RGB_STR 
+        case consts.GRADE_STAR: return consts.GRADE_STAR_RGB_STR
         case consts.GRADE_CONTRABAND: return consts.GRADE_CONTRABAND_RGB_STR 
         case _: return "0, 0, 0"
