@@ -54,6 +54,7 @@ std::string DEFINITIONS::wearToString(const int wear)
         case WEAR_FIELD_TESTED: return WEAR_FIELD_TESTED_STR; break;
         case WEAR_WELL_WORN: return WEAR_WELL_WORN_STR; break;
         case WEAR_BATTLE_SCARRED: return WEAR_BATTLE_SCARRED_STR; break;
+        case WEAR_NO_WEAR: return WEAR_NO_WEAR_STR; break;
     }
     return "?";
 }
@@ -86,6 +87,7 @@ int DEFINITIONS::wearToInt(const std::string &wear)
     if (wear == WEAR_FIELD_TESTED_STR) {return WEAR_FIELD_TESTED;}
     if (wear == WEAR_WELL_WORN_STR) {return WEAR_WELL_WORN;}
     if (wear == WEAR_BATTLE_SCARRED_STR) {return WEAR_BATTLE_SCARRED;}
+    if (wear == WEAR_NO_WEAR_STR) {return WEAR_NO_WEAR;}
     return -1;
 }
 

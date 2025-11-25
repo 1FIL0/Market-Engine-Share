@@ -216,7 +216,8 @@ consts.WEAR_MINIMAL_WEAR = 1; consts.WEAR_MINIMAL_WEAR_STR = "Minimal Wear"
 consts.WEAR_FIELD_TESTED = 2; consts.WEAR_FIELD_TESTED_STR = "Field Tested"
 consts.WEAR_WELL_WORN = 3; consts.WEAR_WELL_WORN_STR = "Well Worn"
 consts.WEAR_BATTLE_SCARRED = 4; consts.WEAR_BATTLE_SCARRED_STR = "Battle Scarred"
-consts.WEAR_MAX = 5
+consts.WEAR_NO_WEAR = 5; consts.WEAR_NO_WEAR_STR = "No Wear"
+consts.WEAR_MAX = 6
 
 # _____ PAGE ______ #
 
@@ -544,6 +545,7 @@ def wearToString(wear: int) -> str:
         case consts.WEAR_FIELD_TESTED: return consts.WEAR_FIELD_TESTED_STR
         case consts.WEAR_WELL_WORN: return consts.WEAR_WELL_WORN_STR
         case consts.WEAR_BATTLE_SCARRED: return consts.WEAR_BATTLE_SCARRED_STR
+        case consts.WEAR_NO_WEAR: return consts.WEAR_NO_WEAR_STR
         case _: return "?"
 
 def pageSortToString(sort: int) -> str:
@@ -577,6 +579,7 @@ def wearToInt(wear: str) -> int:
     if wear == consts.WEAR_FIELD_TESTED_STR: return consts.WEAR_FIELD_TESTED
     if wear == consts.WEAR_WELL_WORN_STR: return consts.WEAR_WELL_WORN
     if wear == consts.WEAR_BATTLE_SCARRED_STR: return consts.WEAR_BATTLE_SCARRED
+    if wear == consts.WEAR_NO_WEAR_STR: return consts.WEAR_NO_WEAR
     return -1
 
 def collectionToString(collection: int) -> str:

@@ -93,13 +93,14 @@ const std::string CATEGORY_SOUVENIR_STR = "Souvenir";
 
 enum {
     WEAR_FACTORY_NEW = 0, WEAR_MINIMAL_WEAR = 1, WEAR_FIELD_TESTED = 2, 
-    WEAR_WELL_WORN = 3, WEAR_BATTLE_SCARRED = 4, WEAR_END
+    WEAR_WELL_WORN = 3, WEAR_BATTLE_SCARRED = 4, WEAR_NO_WEAR = 5, WEAR_END
 };
 const std::string WEAR_FACTORY_NEW_STR = "Factory New";
 const std::string WEAR_MINIMAL_WEAR_STR = "Minimal Wear";
 const std::string WEAR_FIELD_TESTED_STR = "Field Tested";
 const std::string WEAR_WELL_WORN_STR = "Well Worn";
 const std::string WEAR_BATTLE_SCARRED_STR = "Battle Scarred";
+const std::string WEAR_NO_WEAR_STR = "No Wear";
 
 const double FLOAT_MIN_FACTORY_NEW = 0.00;
 const double FLOAT_MIN_MINIMAL_WEAR = 0.071;
