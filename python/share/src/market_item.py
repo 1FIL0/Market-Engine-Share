@@ -17,7 +17,7 @@
 
 class MarketItem:
     def __init__(self):
-        self.tempID: int = -1
+        self.tempAccessID: int = -1
         self.permID: int = -1
         self.weaponName: str = ""
         self.skinName: str = ""
@@ -35,6 +35,7 @@ class MarketItem:
         self.crates: list = []
         self.minFloat: float = -1.0
         self.maxFloat: float = -1.0
+        self.possibleOutputs: list = []
         self.imageUrl: str = ""
         self.imageName: str = ""
         self.steamMarketUrl: str = ""
