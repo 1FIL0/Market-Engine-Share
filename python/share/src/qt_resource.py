@@ -25,7 +25,7 @@ from PyQt5.QtGui import QFont, QFontDatabase, QIcon, QPixmap
 from PyQt5.QtWidgets import QLayout, QWidget, QPushButton, QLabel, QCheckBox, QDoubleSpinBox
 import async_networking
 
-from item import MarketItem
+from market_item import MarketItem
 import definitions
 import logger
 
