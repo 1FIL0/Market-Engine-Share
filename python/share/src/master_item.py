@@ -24,7 +24,6 @@ class MasterItem:
         self.fullName: str = ""
         self.grade: int = -1
         self.category: int = -1
-        self.wear: int = -1
         self.tradeupable: bool = False
         self.collection: int = -1
         self.crates: list = []

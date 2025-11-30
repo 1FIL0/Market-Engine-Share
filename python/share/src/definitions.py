@@ -84,7 +84,8 @@ PATH_DATA_API_BYMYKEL_CSGO_API_ITEMS = PATH_DATA_API / "bymykel_csgo_api_items.j
 PATH_DATA_API_STEAM_WEB_API_ITEMS = PATH_DATA_API / "steam_web_api_items.json"
 PATH_DATA_API_CSFLOAT_ITEMS = PATH_DATA_API / "csfloat_items.json"
 PATH_DATA_API_SKINPORT_ITEMS = PATH_DATA_API / "skinport_items.json"
-PATH_DATA_API_READY_ITEMS = PATH_DATA_API / "ready_items.json"
+PATH_DATA_API_MARKET_ITEMS = PATH_DATA_API / "market_items.json"
+PATH_DATA_API_MASTER_ITEMS = PATH_DATA_API / "master_items.json"
 PATH_DATA_API_SCRAPED_ITEMS = PATH_DATA_API / "scraped_items.json"
 PATH_DATA_API_SCRAPED_PAGES = PATH_DATA_API / "scraped_pages.json"
 

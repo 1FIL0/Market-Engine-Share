@@ -30,7 +30,6 @@ class MarketItem:
         self.priceSteamTax: float = -1.0 # FIELD IS BASED ON PRICE
         self.modifiedPrice: float = 0.0 # FIELD IS SET MANUALLY BASED ON modified_items.json
         self.marketPrice: float = -1.0
-        self.tradeupable: bool = False
         self.imageUrl: str = ""
         self.imageName: str = ""
         self.steamMarketUrl: str = ""
