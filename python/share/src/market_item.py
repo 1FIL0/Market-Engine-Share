@@ -19,6 +19,7 @@ class MarketItem:
     def __init__(self):
         self.tempAccessID: int = -1
         self.permID: int = -1
+        self.masterItemPermID: int - 1
         self.weaponName: str = ""
         self.skinName: str = ""
         self.fullName: str = ""
