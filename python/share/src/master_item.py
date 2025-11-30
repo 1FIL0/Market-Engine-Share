@@ -15,7 +15,7 @@
 #* along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #* See LICENCE file.
 
-class MarketItem:
+class MasterItem:
     def __init__(self):
         self.tempAccessID: int = -1
         self.permID: int = -1
@@ -25,12 +25,12 @@ class MarketItem:
         self.grade: int = -1
         self.category: int = -1
         self.wear: int = -1
-        self.useModifiedState: bool = False # FIELD IS SET MANUALLY BASED ON modified_items.json
-        self.price: float = -1.0 # FIELD IS SET MANUALLY BASED ON modified_items.json
-        self.priceSteamTax: float = -1.0 # FIELD IS BASED ON PRICE
-        self.modifiedPrice: float = 0.0 # FIELD IS SET MANUALLY BASED ON modified_items.json
-        self.marketPrice: float = -1.0
         self.tradeupable: bool = False
+        self.collection: int = -1
+        self.crates: list = []
+        self.minFloat: float = -1.0
+        self.maxFloat: float = -1.0
+        self.possibleOutputs: list = []
         self.imageUrl: str = ""
         self.imageName: str = ""
         self.steamMarketUrl: str = ""
