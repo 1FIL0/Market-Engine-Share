@@ -58,8 +58,9 @@
     #define DIR_MARKET_ENGINE_CALCULATOR                std::string(DIR_MARKET_ENGINE_CLIENT) + "/cpp/calculator"
     #define DIR_MARKET_ENGINE_GPU_KERNEL_PATH           std::string(DIR_MARKET_ENGINE_CALCULATOR) + "/src/gpu_kernel_embedded"
     #define PATH_CONFIG_CLIENT_TRADEUP_ENGINE           std::string(PATH_CONFIG_CLIENT) + "/tradeup_engine.json"
-    #define PATH_DATA_CLIENT_READY_ITEMS                std::string(PATH_DATA_CLIENT) + "/ready_items.json"
-    #define PATH_DATA_CLIENT_MODIFIED_ITEMS             std::string(PATH_DATA_CLIENT) + "/modified_items.json"
+    #define PATH_DATA_CLIENT_MASTER_ITEMS               std::string(PATH_DATA_CLIENT) + "/master_items.json"
+    #define PATH_DATA_CLIENT_MARKET_ITEMS               std::string(PATH_DATA_CLIENT) + "/market_items.json"
+    #define PATH_DATA_CLIENT_MODIFIED_MARKET_ITEMS      std::string(PATH_DATA_CLIENT) + "/modified_market_items.json"
     #define PATH_DATA_CLIENT_PROFITABLE_TRADEUPS        std::string(PATH_DATA_CLIENT) + "/profitable_tradeups.json"
     #define PATH_DATA_CLIENT_PROFITABLE_TRADEUPS_TEMP   std::string(PATH_DATA_CLIENT) + "/profitable_tradeups.json.engine.temp"
 #endif

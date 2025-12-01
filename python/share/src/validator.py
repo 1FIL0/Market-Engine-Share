@@ -32,8 +32,8 @@ def validateFiles():
     if not os.path.exists(definitions.PATH_DATA_CLIENT_MASTER_ITEMS): file_handler.writeFile(definitions.PATH_DATA_CLIENT_MASTER_ITEMS, "{\"DATA\":[]}")
     if not os.path.exists(definitions.PATH_DATA_CLIENT_MARKET_ITEMS): file_handler.writeFile(definitions.PATH_DATA_CLIENT_MARKET_ITEMS, "{\"DATA\":[]}")
     if not os.path.exists(definitions.PATH_DATA_CLIENT_PROFITABLE_TRADEUPS): file_handler.writeFile(definitions.PATH_DATA_CLIENT_PROFITABLE_TRADEUPS, "{\"DATA\":[]}")
-    if not os.path.exists(definitions.PATH_DATA_CLIENT_MODIFIED_ITEMS): file_handler.writeFile(definitions.PATH_DATA_CLIENT_MODIFIED_ITEMS, "{\"DATA\":[]}")
-    if not os.path.exists(definitions.PATH_DATA_CLIENT_MODIFIED_ITEMS): file_handler.writeFile(definitions.PATH_DATA_CLIENT_MODIFIED_ITEMS, "{\"DATA\":[]}")
+    if not os.path.exists(definitions.PATH_DATA_CLIENT_MODIFIED_MARKET_ITEMS): file_handler.writeFile(definitions.PATH_DATA_CLIENT_MODIFIED_MARKET_ITEMS, "{\"DATA\":[]}")
+    if not os.path.exists(definitions.PATH_DATA_CLIENT_MODIFIED_MARKET_ITEMS): file_handler.writeFile(definitions.PATH_DATA_CLIENT_MODIFIED_MARKET_ITEMS, "{\"DATA\":[]}")
 
     if not os.path.exists(definitions.PATH_CONFIG_API): file_handler.makeDir(definitions.PATH_CONFIG_API)
     if not os.path.exists(definitions.PATH_DATA_API): file_handler.makeDir(definitions.PATH_DATA_API)
