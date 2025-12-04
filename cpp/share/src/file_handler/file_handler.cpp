@@ -26,7 +26,6 @@
 #include <rapidjson/document.h>
 #include <rapidjson/prettywriter.h>
 #include <rapidjson/stringbuffer.h>
-#include "logger.hpp"
 #include <boost/interprocess/sync/file_lock.hpp>
 #ifdef _WIN32
 #include <windows.h>

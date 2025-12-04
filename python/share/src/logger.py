@@ -19,7 +19,7 @@ def sendMessage(message: str):
     print("(Market Engine): " + message, flush=True)
 
 def warnMessage(message: str):
-    print("(!Market Engine): " + message, flush=True)
+    print("(!Market Engine Warning): " + message, flush=True)
 
 def errorMessage(message: str):
-    print("(!Market Engine): " + message, flush=True)
+    print("(!Market Engine Error): " + message, flush=True)
