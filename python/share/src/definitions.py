@@ -1107,6 +1107,14 @@ def collectionToCrate(collection: int):
         case consts.COLLECTION_ARMS_DEAL: return consts.CRATE_WEAPON_CASE
         case _: return consts.CRATE_UNKNOWN
 
+def itemFloatValToInt(val: float) -> int:
+    if val >= 0.0 and val <= consts.FLOAT_MAX_FACTORY_NEW: return consts.WEAR_FACTORY_NEW
+    if val >= 0.0 and val <= consts.FLOAT_MAX_MINIMAL_WEAR: return consts.WEAR_MINIMAL_WEAR
+    if val >= 0.0 and val <= consts.FLOAT_MAX_FIELD_TESTED: return consts.WEAR_FIELD_TESTED
+    if val >= 0.0 and val <= consts.FLOAT_MAX_WELL_WORN: return consts.WEAR_WELL_WORN
+    if val >= 0.0 and val <= consts.FLOAT_MAX_BATTLE_SCARRED: return consts.WEAR_BATTLE_SCARRED
+    return -1.0
+
 def gradeToRGBString(grade: int) -> str:
     match grade:
         case consts.GRADE_CONSUMER: return consts.GRADE_CONSUMER_RGB_STR 
