@@ -504,6 +504,26 @@ consts.CRATE_BRAVO_STR = "Operation Bravo Case"
 consts.CRATE_ESPORTS_2013_STR = "eSports 2013 Case"
 consts.CRATE_WEAPON_CASE_STR = "CS:GO Weapon Case"
 
+# FLOATS
+
+consts.FLOAT_MIN_FACTORY_NEW = 0.00
+consts.FLOAT_MIN_MINIMAL_WEAR = 0.071
+consts.FLOAT_MIN_FIELD_TESTED = 0.151
+consts.FLOAT_MIN_WELL_WORN = 0.381
+consts.FLOAT_MIN_BATTLE_SCARRED = 0.451
+
+consts.FLOAT_MAX_FACTORY_NEW = 0.07
+consts.FLOAT_MAX_MINIMAL_WEAR = 0.15
+consts.FLOAT_MAX_FIELD_TESTED = 0.38
+consts.FLOAT_MAX_WELL_WORN = 0.45
+consts.FLOAT_MAX_BATTLE_SCARRED = 1.0
+
+consts.FLOAT_AVG_FACTORY_NEW = 0.035
+consts.FLOAT_AVG_MINIMAL_WEAR = 0.11
+consts.FLOAT_AVG_FIELD_TESTED = 0.26
+consts.FLOAT_AVG_WELL_WORN = 0.41
+consts.FLOAT_AVG_BATTLE_SCARRED = 0.725
+
 weapons = [
     "AK-47", "M4A4", "M4A1-S", "AWP", "SG 553", "FAMAS", "Galil AR", "M249", "Negev", 
     "CZ75-Auto", "Desert Eagle", "P250", "Five-SeveN", "Tec-9", "USP-S", "Glock-18", 
