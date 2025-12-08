@@ -532,7 +532,7 @@ weapons = [
     "P2000", "SSG 08", "MP5-SD", "SCAR-20",
     
     "Bayonet," "M9 Bayonet", "Bowie Knife", "Butterfly Knife", "Classic Knife",
-    "Falchion Knife", "Flip Knife", "Gut Knife", "Huntsman Knife", "Karambit,"
+    "Falchion Knife", "Flip Knife", "Gut Knife", "Huntsman Knife", "Karambit",
     "Kukri Knife", "Navaja Knife", "Nomad Knife", "Paracord Knife", "Shadow Daggers",
     "Skeleton Knife", "Stiletto Knife", "Survival Knife", "Talon Knife", "Ursus Knife",
 
