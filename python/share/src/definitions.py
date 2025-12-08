@@ -536,6 +536,9 @@ weapons = [
     "Kukri Knife", "Navaja Knife", "Nomad Knife", "Paracord Knife", "Shadow Daggers",
     "Skeleton Knife", "Stiletto Knife", "Survival Knife", "Talon Knife", "Ursus Knife",
 
+    "Hand Wraps", "Moto Gloves", "Driver Gloves", "Specialist Gloves", "Sport Gloves",
+    "Bloodhound Gloves", "Broken Fang Gloves", "Hydra Gloves", 
+
     "Zeus x27"
 ]
 
